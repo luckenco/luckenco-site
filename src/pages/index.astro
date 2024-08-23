@@ -11,12 +11,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts"
     </head>
     <body>
         <main>
-            <img src="/avatar_small.jpg" alt="Avatar image" />
+            <img src="/avatar.jpg" alt="Avatar image" />
             <h1>@calbch</h1>
             <h2>bounty hunter - brother in tech</h2>
             <ul>
                 <li><a href="https://github.com/calbch">GitHub</a></li>
+               
                 <li><a href="https://twitter.com/calbch">X the everything app</a></li>
+                <li><a href="https://cal.com/calbch/15min">talk to me</a></li>
             </ul>
         </main>
         <Footer />
@@ -57,10 +59,24 @@ h1 {
 }
 
 h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: normal;
     margin: 0.4rem 0 1rem;
 }
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1068px) {
+    h2 {
+        font-size: 1rem;
+    }
+}
+
+
 
 ul {
     list-style-type: none;
