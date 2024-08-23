@@ -1,18 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import BaseHead from "../components/base-head.astro"
+import Footer from "../components/footer.astro"
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts"
 ---
 
-<Layout title="@calbch">
-    <main>
-        <img src="/avatar_small.jpg" alt="Avatar image" />
-        <h1>@calbch</h1>
-        <h2>bounty hunter - brother in tech</h2>
-        <ul>
-            <li><a href="https://github.com/calbch">GitHub</a></li>
-            <li><a href="https://twitter.com/calbch">X the everything app</a></li>
-        </ul>
-    </main>
-</Layout>
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <main>
+            <img src="/avatar_small.jpg" alt="Avatar image" />
+            <h1>@calbch</h1>
+            <h2>bounty hunter - brother in tech</h2>
+            <ul>
+                <li><a href="https://github.com/calbch">GitHub</a></li>
+                <li><a href="https://twitter.com/calbch">X the everything app</a></li>
+            </ul>
+        </main>
+        <Footer />
+    </body>
+</html>
 
 <style>
 body {
