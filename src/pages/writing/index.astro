@@ -1,15 +1,52 @@
 ---
+import BaseLayout from "../../layouts/base-layout.astro";
 import { getCollection } from "astro:content";
 const posts = await getCollection('blog', ({ data }) => {
  return data.published
 })
 ---
 
-<h1>Blog</h1>
-<ul>
-    {posts.map(post => (
-    <li>
-        <a href=`/writing/${post.id}`>{post.data.title}</a>
-    </li>
-    ))}
-</ul>
+<BaseLayout title="Writing | @calbch" description="this is where you can find my writing and explorations.">
+    <a href="/" class="back-link">← home</a>
+    <h1>writing</h1>
+    <ul>
+        {posts.map(post => (
+        <li>
+            <a href=`/writing/${post.id}`>{post.data.title}</a>
+        </li>
+        ))}
+    </ul>
+</BaseLayout>
+
+<style>
+    .back-link {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        color: black;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 0.5rem;
+    }
+
+    li:before {
+        content: ">";
+        margin-right: 0.5rem;
+    }
+
+    li a {
+        color: black;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+    }
+
+    li a:hover {
+        border-bottom: 2px solid black;
+    }
+</style>

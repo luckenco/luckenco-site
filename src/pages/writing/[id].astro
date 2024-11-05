@@ -1,12 +1,12 @@
 ---
 import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/base-layout.astro";
 
 export const prerender = true
 
 export async function getStaticPaths() {
-    const posts = await getCollection('blog', ({data}) => {
-        return data.published
-    })
+    const posts = await getCollection('blog')
+    console.log(posts)
     return posts.map(post => ({
         params: { id: post.id },
         props: { post }
@@ -17,6 +17,37 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<h1>{post.data.title}</h1>
-<h2>{post.data.description}</h2>
-<Content />
+<BaseLayout title={`${post.data.title} | @calbch`} description={post.data.description}>
+    <article>
+        <a href="/writing" class="back-link">← All posts</a>
+        <h1>{post.data.title}</h1>
+        <h2>{post.data.description}</h2>
+        <div class="content">
+            <Content />
+        </div>
+    </article>
+</BaseLayout>
+
+<style>
+    article {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .back-link {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    }
+
+    .content {
+        line-height: 1.6;
+    }
+
+    /* Override the main styles from Layout for article pages */
+    :global(main) {
+        height: auto;
+        min-height: 100vh;
+    }
+</style>
