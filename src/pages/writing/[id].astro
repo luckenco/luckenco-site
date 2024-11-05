@@ -2,22 +2,22 @@
 import { getCollection, render } from "astro:content";
 import BlogLayout from "../../layouts/blog-layout.astro";
 
-export const prerender = true
+export const prerender = true;
 
 export async function getStaticPaths() {
-    const posts = await getCollection('blog')
-    return posts.map(post => ({
-        params: { id: post.id },
-        props: { post }
-    }))
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
 
 const formatDate = (date: Date) => {
-    return date.toISOString().split('T')[0];
-}
+  return date.toISOString().split("T")[0];
+};
 ---
 
 <BlogLayout title={`${post.data.title} | @calbch`} description={post.data.description}>

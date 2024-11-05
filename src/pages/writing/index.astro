@@ -1,9 +1,9 @@
 ---
 import BaseLayout from "../../layouts/base-layout.astro";
 import { getCollection } from "astro:content";
-const posts = await getCollection('blog', ({ data }) => {
- return data.published
-})
+const posts = await getCollection("blog", ({ data }) => {
+  return data.published;
+});
 ---
 
 <BaseLayout title="Writing | @calbch" description="this is where you can find my writing and explorations.">
