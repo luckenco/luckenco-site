@@ -1,0 +1,65 @@
+---
+import BaseHead from "../components/base-head.astro"
+import Footer from "../components/footer.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
+
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={title} description={description} />
+    </head>
+    <body>
+        <main>
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-color: white;
+        color: black;
+        font-family: 'Berkeley Mono', monospace;
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+</style>
+
+<style is:global>
+    a {
+        color: black;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+    }
+
+    a:hover {
+        border-bottom: 2px solid black;
+    }
+
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 0.8rem;
+        }
+    }
+
+    @media (max-width: 1068px) {
+        h2 {
+            font-size: 1rem;
+        }
+    }
+</style>

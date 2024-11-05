@@ -1,99 +1,55 @@
 ---
-import BaseHead from "../components/base-head.astro"
-import Footer from "../components/footer.astro"
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts"
+import BaseLayout from "../layouts/base-layout.astro"
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-    <body>
-        <main>
-            <img src="/avatar.jpg" alt="Avatar image" />
-            <h1>@calbch</h1>
-            <h2>bounty hunter - brother in tech</h2>
-            <ul>
-                <li><a href="https://cal.com/calbch/15min">talk to me</a></li>
-                <li><a href="https://github.com/calbch">GitHub</a></li>
-                <li><a href="/writing">writing</a></li>
-                <li><a href="https://twitter.com/calbch">X the everything app</a></li>
-            </ul>
-        </main>
-        <Footer />
-    </body>
-</html>
+<BaseLayout>
+    <img src="/avatar.jpg" alt="Avatar image" />
+    <h1>@calbch</h1>
+    <h2>bounty hunter - brother in tech</h2>
+    <ul>
+        <li>
+            <a href="https://cal.com/calbch/15min">talk to me</a>
+        </li>
+        <li>
+            <a href="/writing">writing</a>
+        </li>
+        <li>
+            <a href="https://github.com/calbch">GitHub</a>
+        </li>
+        <li>
+            <a href="https://twitter.com/calbch">X the everything app</a>
+        </li>
+    </ul>
+</BaseLayout>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background-color: white;
-    color: black;
-    font-family: 'Berkeley Mono', monospace;
-}
-
-main {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-}
-
-img {
-    width: 256px;
-    height: 256px;
-    object-fit: cover;
-    margin-bottom: 1rem;
-}
-
-h1 {
-    font-size: 2rem;
-    letter-spacing: -2px;
-    margin: 0.5rem 0 0.25rem;
-}
-
-h2 {
-    font-size: 1.2rem;
-    font-weight: normal;
-    margin: 0.4rem 0 1rem;
-}
-
-@media (max-width: 480px) {
-    h2 {
-        font-size: 0.8rem;
+    h1 {
+        font-size: 2rem;
+        letter-spacing: -2px;
+        margin: 0.5rem 0 0.25rem;
     }
-}
 
-@media (max-width: 1068px) {
     h2 {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        font-weight: normal;
+        margin: 0.4rem 0 0.4rem;
     }
-}
 
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 0.5rem;
-    text-align: center;
-}
+    img {
+        width: 256px;
+        height: 256px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
 
-li {
-    margin: 0.5rem 0;
-}
+    ul {
+        list-style: none; 
+        text-align: center;
+        padding: 0;
+    }
 
-a {
-    color: black;
-    text-decoration: none;
-    border-bottom: 1px solid black;
-}
+    li {
+        margin: 0.5rem 0;
+    }
 
-a:hover {
-    border-bottom: 2px solid black;
-}
 </style>
