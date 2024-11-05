@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from "astro:content";
+
+export const prerender = true
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog', ({data}) => {
+        return data.published
+    })
+    return posts.map(post => ({
+        params: { id: post.id },
+        props: { post }
+    }))
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<h1>{post.data.title}</h1>
+<h2>{post.data.description}</h2>
+<Content />
