@@ -13,7 +13,10 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     </head>
     <body>
         <main>
-            <slot />
+            <a href="/writing" class="back-link">← writing</a>
+            <div class="content">
+                <slot />
+            </div>
         </main>
         <Footer />
     </body>
@@ -30,13 +33,45 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     }
 
     main {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        box-sizing: border-box;
+        width: 100%;
+        min-height: 100vh;
+        position: relative;
+    }
+
+    .content {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 4rem 2rem;
+    }
+
+    .back-link {
+        position: fixed;
+        top: 2rem;
+        left: 2rem;
+    }
+
+    @media (max-width: 860px) {
+        .content {
+            max-width: 600px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .back-link {
+            position: static;
+            display: block;
+            margin: 2rem 2rem 0;
+        }
+
+        .content {
+            padding: 1rem 2rem 4rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .content {
+            padding: 1rem 1rem 4rem;
+        }
     }
 </style>
 
@@ -48,19 +83,6 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     }
 
     a:hover {
-        color: black;
         border-bottom: 2px solid black;
-    }
-
-    @media (max-width: 480px) {
-        h2 {
-            font-size: 0.8rem;
-        }
-    }
-
-    @media (max-width: 1068px) {
-        h2 {
-            font-size: 1rem;
-        }
     }
 </style>
