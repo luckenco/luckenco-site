@@ -1,14 +1,28 @@
 ---
-import BaseLayout from "../../layouts/base-layout.astro";
 import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/base-layout.astro";
 const posts = await getCollection("blog", ({ data }) => {
   return data.published;
+});
+
+posts.sort((a, b) => {
+  if (!a.data.publishingDate) {
+    return 1;
+  }
+  if (!b.data.publishingDate) {
+    return -1;
+  }
+  return (
+    new Date(b.data.publishingDate).getTime() -
+    new Date(a.data.publishingDate).getTime()
+  );
 });
 ---
 
 <BaseLayout title="Writing | @calbch" description="this is where you can find my writing and explorations.">
     <a href="/" class="back-link">← home</a>
     <h1>writing</h1>
+    <p>coming soon..</p>
     <ul>
         {posts.map(post => (
         <li>
