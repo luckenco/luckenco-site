@@ -1,0 +1,131 @@
+---
+import BaseLayout from "../layouts/base-layout.astro";
+---
+
+<BaseLayout>
+    <div class="ventures-container">
+        <h1>Ventures</h1>
+
+        <section class="venture-section">
+            <h2>Currently Involved</h2>
+            <div class="venture-list">
+                <div class="venture-item">
+                    <h3>steig</h3>
+                    <p>
+                        At steig, I help decision makers learn and build their personal AI stack, drive company-wide
+                        tool adoption, and implement custom RAG and software solutions.
+                    </p>
+                    <a href="https://steig.co">Visit steig →</a>
+                </div>
+                <div class="venture-item inactive-venture">
+                    <h3>lenge</h3>
+                    <p>
+                        Lenge uses AI to recommend personalized habits based on your goals and energy levels. We then
+                        match you with an accountability partner who shares similar ambitions. Together, you embark on a
+                        14-day challenge, supporting and motivating each other along the way.
+                    </p>
+                    <a href="https://lenge.app">Visit lenge →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="venture-section">
+            <h2>Partners & Organizations</h2>
+            <div class="partner-list">
+                <div class="partner-item">
+                    <span class="partner-name">Kevin Ludwig </span>
+                    <p>
+                        We collaborate on most of our engineering projects. Hence, Kevin's extensive experience as a
+                        software architect at Porsche positively impacts my work.
+                    </p>
+                    <a href="https://kevinludwig.com/">Visit the homepage →</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</BaseLayout>
+
+<style>
+    .ventures-container {
+        width: 90%;
+        max-width: 740px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        letter-spacing: -2px;
+        margin: 0.5rem 0 2rem;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        margin: 2rem 0 1rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+        margin: 0 0 0.5rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 0.5rem 0;
+    }
+
+    .venture-section {
+        margin: 2rem 0;
+    }
+
+    .venture-list,
+    .partner-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .venture-item,
+    .partner-item {
+        padding: 1rem;
+        border: 1px solid black;
+    }
+
+    .inactive-venture {
+        border-style: dashed;
+    }
+
+    .partner-name {
+        font-weight: bold;
+    }
+
+    /* Tablet and desktop styles */
+    @media (min-width: 768px) {
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        .ventures-container {
+            padding: 2rem;
+        }
+
+        .venture-item,
+        .partner-item {
+            padding: 1.5rem;
+        }
+    }
+</style>
