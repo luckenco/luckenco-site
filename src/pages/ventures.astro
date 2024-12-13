@@ -15,7 +15,7 @@ import BaseLayout from "../layouts/base-layout.astro";
                         At steig, I help decision makers learn and build their personal AI stack, drive company-wide
                         tool adoption, and implement custom RAG and software solutions.
                     </p>
-                    <a href="https://steig.co">Visit steig →</a>
+                    <a id="steig-link" href="https://steig.co?ref=calbch">Visit steig →</a>
                 </div>
                 <div class="venture-item inactive-venture">
                     <h3>lenge</h3>
@@ -24,7 +24,7 @@ import BaseLayout from "../layouts/base-layout.astro";
                         match you with an accountability partner who shares similar ambitions. Together, you embark on a
                         14-day challenge, supporting and motivating each other along the way.
                     </p>
-                    <a href="https://lenge.app">Visit lenge →</a>
+                    <a id="lenge-link" href="https://lenge.app?ref=calbch">Visit lenge →</a>
                 </div>
             </div>
         </section>
@@ -38,12 +38,22 @@ import BaseLayout from "../layouts/base-layout.astro";
                         We collaborate on most of our engineering projects. Hence, Kevin's extensive experience as a
                         software architect at Porsche positively impacts my work.
                     </p>
-                    <a href="https://kevinludwig.com/">Visit the homepage →</a>
+                    <a id="kev-link" href="https://kevinludwig.com?ref=calbch">Visit the homepage →</a>
                 </div>
             </div>
         </section>
     </div>
 </BaseLayout>
+
+<script>
+    const steigLink = document.querySelector("steig-link");
+    const lengeLink = document.querySelector("lenge-link");
+    const kevLink = document.querySelector("kev-link");
+
+    steigLink?.addEventListener("click", () => window.fathom.trackEvent("steig click"));
+    lengeLink?.addEventListener("click", () => window.fathom.trackEvent("lenge click"));
+    kevLink?.addEventListener("click", () => window.fathom.trackEvent("kev click"));
+</script>
 
 <style>
     .ventures-container {
