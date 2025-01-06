@@ -9,7 +9,7 @@
     "fix": "biome check --write ."
   },
   "dependencies": {
-    "astro": "5.0.3"
+    "astro": "5.1.2"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
