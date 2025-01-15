@@ -52,16 +52,6 @@ import BaseLayout from "../layouts/base-layout.astro";
     </div>
 </BaseLayout>
 
-<script>
-    const steigLink = document.querySelector("#steig-link");
-    const lengeLink = document.querySelector("#lenge-link");
-    const kevLink = document.querySelector("#kev-link");
-
-    steigLink?.addEventListener("click", () => window.fathom.trackEvent("steig click"));
-    lengeLink?.addEventListener("click", () => window.fathom.trackEvent("lenge click"));
-    kevLink?.addEventListener("click", () => window.fathom.trackEvent("kev click"));
-</script>
-
 <style>
     .back-link {
         position: absolute;

@@ -50,4 +50,9 @@ const isProduction = Astro.site?.origin === Astro.url.origin;
 <meta property="og:locale" content="en_US" />
 
 <!-- Fathom Analytics -->
-{isProduction && <script is:inline src="https://cdn.usefathom.com/script.js" data-site="WQLOHAXO" defer />}
+{
+    isProduction && (
+        <script is:inline src="https://analytics.ahrefs.com/analytics.js" data-key="/FXI3LtEi8qMKS5LyD0r6A" async />
+        <script is:inline src="https://luckenco.com/luckenco-um-insights.js"  data-website-id="93329f15-472c-4ca2-92fc-fb06386f3818" defer />
+    )
+}
