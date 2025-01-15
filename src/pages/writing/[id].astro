@@ -20,7 +20,7 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<BlogLayout title={`${post.data.title} | @calbch`} description={post.data.description}>
+<BlogLayout title={`${post.data.title} | @luckenco`} description={post.data.description}>
     <article>
         <header>
             <h1 class="heading">{post.data.title}</h1>
@@ -29,10 +29,12 @@ const formatDate = (date: Date) => {
                 <time datetime={post.data.publishingDate.toISOString()}>
                     {formatDate(post.data.publishingDate)}
                 </time>
-                {post.data.updateDate && 
-                    <time class="update" datetime={post.data.updateDate.toISOString()}>
-                        (updated: {formatDate(post.data.updateDate)})
-                    </time>
+                {
+                    post.data.updateDate && (
+                        <time class="update" datetime={post.data.updateDate.toISOString()}>
+                            (updated: {formatDate(post.data.updateDate)})
+                        </time>
+                    )
                 }
             </div>
         </header>
@@ -84,11 +86,9 @@ const formatDate = (date: Date) => {
     }
 
     @media (max-width: 860px) {
-    
     }
 
     @media (max-width: 640px) {
-
     }
 
     @media (max-width: 480px) {
@@ -108,7 +108,7 @@ const formatDate = (date: Date) => {
             padding: 1rem 1rem 4rem;
         }
 
-         .content :global(h1) {
+        .content :global(h1) {
             font-size: 1.2rem;
         }
 
@@ -121,5 +121,4 @@ const formatDate = (date: Date) => {
             flex-direction: column;
         }
     }
-
 </style>
