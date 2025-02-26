@@ -8,7 +8,7 @@ import BaseLayout from "../layouts/base-layout.astro";
     <div class="avatar-container">
         <Image src={avatar} alt="Avatar image" class="avatar-image" />
     </div>
-    <h1>constantin luckenbach</h1>
+    <h1 class="heading">constantin luckenbach</h1>
     <div class="container">
         <p>
             I'm a business owner and developer from Germany.
@@ -64,6 +64,10 @@ import BaseLayout from "../layouts/base-layout.astro";
 </BaseLayout>
 
 <style>
+    .heading {
+        text-align: center;
+    }
+
     .avatar-container {
         width: 256px;
         height: 256px;
