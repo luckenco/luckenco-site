@@ -7,45 +7,65 @@ import BaseLayout from "../layouts/base-layout.astro";
         <a href="/" class="back-link">← home</a>
         <h1>work</h1>
 
-        <section class="venture-section">
+        <section class="work-section">
             <h2>Currently Involved</h2>
-            <div class="venture-list">
-                <div class="venture-item">
+            <div class="work-list">
+                <div class="work-item">
                     <h3>steig</h3>
                     <p>
-                        At steig, I help decision makers learn and build their personal AI stack, drive company-wide
-                        tool adoption, and implement custom RAG and software solutions.
+                        At steig, I help decision makers learn and build their
+                        personal AI stack, drive company-wide tool adoption, and
+                        implement custom RAG and software solutions.
                     </p>
-                    <a id="steig-link" href="https://steig.co?ref=luckenco" target="_blank" rel="noopener"
-                        >Visit steig →</a
+                    <a
+                        id="steig-link"
+                        href="https://steig.co?ref=luckenco"
+                        target="_blank"
+                        rel="noopener">Visit steig →</a
                     >
                 </div>
-                <div class="venture-item inactive-venture">
+                <div class="work-item">
+                    <h3>rsai.dev</h3>
+                    <p>
+                        Predictable development for unpredictable models. Let
+                        the compiler handle the chaos. Minimal Rust framework to
+                        interact with LLMs.
+                    </p>
+                    <a
+                        id="steig-link"
+                        href="https://rsai.dev?ref=luckenco"
+                        target="_blank"
+                        rel="noopener">View code →</a
+                    >
+                </div>
+                <div class="work-item inactive-work">
                     <h3>lenge</h3>
                     <p>
-                        Lenge uses AI to recommend personalized habits based on your goals and energy levels. We then
-                        match you with an accountability partner who shares similar ambitions. Together, you embark on a
-                        14-day challenge, supporting and motivating each other along the way.
+                        Lenge uses AI to recommend personalized habits based on
+                        your goals and energy levels. We then match you with an
+                        accountability partner who shares similar ambitions.
+                        Together, you embark on a 14-day challenge, supporting
+                        and motivating each other along the way.
                     </p>
-                    <a id="lenge-link" href="https://lenge.app?ref=luckenco" target="_blank" rel="noopener"
-                        >Visit lenge →</a
+                    <a
+                        id="lenge-link"
+                        href="https://lenge.app?ref=luckenco"
+                        target="_blank"
+                        rel="noopener">Visit lenge →</a
                     >
                 </div>
             </div>
         </section>
 
-        <section class="venture-section">
+        <section class="work-section">
             <h2>Partners & Organizations</h2>
             <div class="partner-list">
                 <div class="partner-item">
-                    <span class="partner-name">Kevin Ludwig </span>
-                    <p>
-                        We collaborate on most of our engineering projects. Hence, Kevin's extensive experience as a
-                        former software architect at Porsche positively impacts my work.
-                    </p>
-                    <a id="kev-link" href="https://kevinludwig.com?ref=luckenco" target="_blank" rel="noopener"
+                    <span class="partner-name">coming soon...</span>
+                    <p>You will find collaborators and mutuals here.</p>
+                    <!-- <a id="kev-link" href="https://kevinludwig.com?ref=luckenco" target="_blank" rel="noopener"
                         >Visit the homepage →</a
-                    >
+                    > -->
                 </div>
             </div>
         </section>
@@ -90,24 +110,24 @@ import BaseLayout from "../layouts/base-layout.astro";
         margin: 0.5rem 0;
     }
 
-    .venture-section {
+    .work-section {
         margin: 2rem 0;
     }
 
-    .venture-list,
+    .work-list,
     .partner-list {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
     }
 
-    .venture-item,
+    .work-item,
     .partner-item {
         padding: 1rem;
         border: 1px solid black;
     }
 
-    .inactive-venture {
+    .inactive-work {
         border-style: dashed;
     }
 
@@ -137,7 +157,7 @@ import BaseLayout from "../layouts/base-layout.astro";
             padding: 2rem;
         }
 
-        .venture-item,
+        .work-item,
         .partner-item {
             padding: 1.5rem;
         }
