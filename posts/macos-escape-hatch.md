@@ -6,41 +6,44 @@ updateDate: 2025-12-08
 published: true
 ---
 
-Apple hardware is still unbeatable. You unbox it, and it works. The aluminium chassis feels sturdy, free from the creaky plastics and branding stickers you're used to from the competition.
+**Escape macOS Without Leaving Apple Hardware**
 
-macOS on the other hand is starting to look more like a tablet OS. Animations are prioritized over power-user utility. Properly sizing edge radii seems impossible. The simplicity and polish Apple was once known for is fading.
+Apple's hardware is unbeatable. macOS? Less so. Here's how you get the best of both worlds.
 
-There are alternatives on the horizon, but as of now they can't compete. Framework laptops seem to have brittle build quality and a horrible display. The HP ZBook Ultra G1a looks promising, but 14" is too small for my workflow.
+# The Hardware Throne
 
-Yet the ecosystem remains a golden trap: Handoff, Messages, Photos - all of it works great.
+MacBooks are still undefeated. You unbox it, and it works. The aluminium chassis feels sturdy, free from the creaky plastics and branding stickers you're used to from the competition.
+
+The software is another story. macOS is starting to resemble a tablet OS. Animations are prioritised over power-user utility. Properly sizing edge radii seems impossible. The simplicity and polish Apple was once known for is fading.
+
+There are alternatives on the horizon, but as of now, they can't compete. Framework laptops appear to have brittle build quality and a horrible display. The HP ZBook Ultra G1a looks promising, but 14" is too small for my workflow.
+So why not switch? The ecosystem's convenience, the build quality, and especially the battery life—it's a golden trap.
+
+There has to be a third option...
 
 # The best of both worlds?
 
 I recently cleared out my YouTube playlists and rediscovered this gem where [@mitchellh](https://x.com/mitchellh) talks about his coding setup.
 
-Modern hardware is powerful enough to run a linux VM on a macOS host productively.
+Modern hardware is powerful enough to run a Linux VM on a macOS host productively.
 
 > [Mitchell Hashimoto @mitchellh · Jan 4, 2021](https://x.com/mitchellh/status/1346136404682625024)
 >
 > I switched my primary dev environment to a graphical NixOS VM on a macOS host. It has been wonderful. I can keep the great GUI ecosystem of macOS, but all dev tools are in a full screen VM. One person said "it basically replaced your terminal app" which is exactly how it feels.
 
-If this was already the case 4 years ago (and Mitchell built some serious stuff) this is even truer today.
+If this was already the case 4 years ago (and Mitchell built some serious stuff), this is even truer today.
 
-So I set some time aside, installed VMware Fusion and set up Fedora 43. I wanted to run Hyprland, a dynamic Tiling Wayland compositor. Since I mostly use CLI tooling this seemed like a great fit.
-
+So I set some time aside, installed VMware Fusion and set up Fedora 43. I wanted to run Hyprland, a dynamic Tiling Wayland compositor. Since I mostly use CLI tooling, this seemed like a great fit.
 Long story short: there are issues with Wayland and the current VMware (and Parallels) drivers.
 
 After 20 minutes of dnf remove, something felt off. I could just clone my dotfiles repo and stow them into .config like I always do on macOS. Sure, I was "preparing" for the day when non-Apple hardware is good enough to jump ship entirely—but tinkering with your OS all day doesn't make money.
-
 I didn't just want to be independent from macOS. I want reproducibility. One command to set up my entire dev environment on any machine I touch.
 
 # NixOS
 
-Since Mitchell mentions NixOS explicitly in the video, it was the logical next step.
+I started with Fedora 43 due to serious PTSD from attempting to move all my dotfiles to nix-darwin a few years ago.
 
-The reason I tried Fedora first? Some serious PTSD from attempting to move all my dotfiles to nix-darwin a few years ago.
-
-But the promise of the same environment on any machine I'd touch from now was way too good to ignore.
+But Mitchell mentions NixOS explicitly in the video, and the promise of reproducibility was too good to ignore.
 
 NixOS is a Linux distribution built around the Nix package manager. Everything is defined declaratively, promising reproducible and reliable systems.
 
@@ -81,28 +84,6 @@ keybindings = lib.mkOptionDefault {
 
 After resizing the window on macOS, I hit the keybind and the resolution fixes itself.
 
-Here are the settings, if you want to follow along:
-
-## VMware Fusion
-
-### Keyboard & Mouse
-
-This is important so keybinds work without issues.
-
-### Processors & Memory
-
-Set this depending on your workloads. Up to 4/5ths seems to work well.
-
-### Display Setup
-
-Configure as needed for your display.
-
-### Additional Setup
-
-Additionally I remove the Sound as well as Video drivers in the settings. For everything media, I use macOS.
-
-## NixOS
-
 Download the Graphical ISO Image for ARM and boot into it. If you want to mimic my setup, install it without any desktop environment.
 
 If you want to try this setup or just poke around, here's the repo: https://github.com/caluckenbach/nixos-config
@@ -113,17 +94,17 @@ Fork it. Make it yours.
 
 # Workflow
 
-My development work now lives inside of the VM. I access everything using the VM's IP.
+My development work now lives inside the VM. I access everything using the VM's IP.
 
 Everything else runs on macOS. I can go from a fresh install to my complete dev environment in under 10 minutes.
 
 # What's Next
 
-I am happy with this setup. So happy that I will give nix-darwin another shot.
+I'm happy with this setup. So happy that I'll give nix-darwin another shot.
 
-Before I do (keep in mind the focus is on reproducible dev environment), there are a lot of dotfiles left to migrate.
+Before I do, there are a lot of dotfiles left to migrate.
 
-Eventually I want to refactor the codebase and add different hardware and home-manager modules, so I can use this exact setup outside VMware. For the day when someone finally builds a laptop worth leaving Apple for.
+Eventually, I want to refactor the codebase and add different hardware and home-manager modules, so I can use this exact setup outside VMware. For the day when someone finally builds a laptop worth leaving Apple for.
 
 If you've followed along, you've broken free from Apple's shackles while still enjoying the forbidden fruit of their ecosystem.
 
