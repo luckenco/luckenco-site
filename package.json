@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "3.6.0",
-    "astro": "5.14.4"
+    "astro": "5.16.4"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
