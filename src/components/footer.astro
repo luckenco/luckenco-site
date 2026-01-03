@@ -3,7 +3,14 @@ const today = new Date();
 ---
 
 <footer>
-    &copy; {today.getFullYear()} Constantin Luckenbach. All rights reserved.
+    <div class="legal-links">
+        <a href="/impressum">Impressum</a>
+        <span class="separator">|</span>
+        <a href="/datenschutz">Datenschutz</a>
+    </div>
+    <div class="copyright">
+        &copy; {today.getFullYear()} Constantin Luckenbach. All rights reserved.
+    </div>
 </footer>
 <style>
     footer {
@@ -11,5 +18,22 @@ const today = new Date();
         background: linear-gradient(var(--gray-gradient)) no-repeat;
         color: rgb(var(--gray));
         text-align: center;
+    }
+
+    .legal-links {
+        margin-bottom: 0.5rem;
+    }
+
+    .legal-links a {
+        color: rgb(var(--gray));
+        text-decoration: none;
+    }
+
+    .legal-links a:hover {
+        text-decoration: underline;
+    }
+
+    .separator {
+        margin: 0 0.5rem;
     }
 </style>
