@@ -12,7 +12,8 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
         <BaseHead title={title} description={description} />
     </head>
     <body>
-        <main>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <main id="main-content">
             <a href="/writing" class="back-link">← writing</a>
             <div class="content">
                 <slot />
@@ -23,19 +24,12 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 </html>
 
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        background-color: white;
-        color: black;
-        font-family: "Berkeley Mono", monospace;
-    }
-
     main {
-        width: 100%;
         min-height: 100vh;
         position: relative;
+        max-width: 72rem;
+        margin: 0 auto;
+        padding: 1rem;
     }
 
     .content {
@@ -60,30 +54,17 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
         .back-link {
             position: static;
             display: block;
-            margin: 2rem 2rem 0;
+            margin: 0.5rem 0 1rem;
         }
 
         .content {
-            padding: 1rem 2rem 4rem;
+            padding: 1rem 0 4rem;
         }
     }
 
     @media (max-width: 480px) {
         .content {
-            padding: 1rem 1rem 4rem;
+            padding: 1rem 0 4rem;
         }
-    }
-</style>
-
-<style is:global>
-    a {
-        color: black;
-        text-decoration: none;
-        border-bottom: 1px solid black;
-    }
-
-    a:hover {
-        color: black;
-        border-bottom: 2px solid black;
     }
 </style>

@@ -25,7 +25,7 @@ posts.sort((a, b) => {
     <ul>
         {posts.map(post => (
         <li>
-            <a href=`/writing/${post.id}`>{post.data.title}</a>
+            <a href={`/writing/${post.id}`}>{post.data.title}</a>
         </li>
         ))}
     </ul>

@@ -14,9 +14,9 @@ const today = new Date();
 </footer>
 <style>
     footer {
-        padding: 2em 1em 6em 1em;
-        background: linear-gradient(var(--gray-gradient)) no-repeat;
-        color: rgb(var(--gray));
+        padding: 2em 1em 3em 1em;
+        border-top: 1px solid #e6e6e6;
+        color: var(--fg-muted);
         text-align: center;
     }
 
@@ -25,8 +25,9 @@ const today = new Date();
     }
 
     .legal-links a {
-        color: rgb(var(--gray));
+        color: inherit;
         text-decoration: none;
+        border-bottom: none;
     }
 
     .legal-links a:hover {

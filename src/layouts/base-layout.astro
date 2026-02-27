@@ -15,57 +15,29 @@ const {
         <BaseHead title={title} description={description} />
     </head>
     <body>
-        <main>
+        <a class="skip-link" href="#main-content">Skip to content</a>
+        <main id="main-content">
             <slot />
         </main>
         <Footer />
     </body>
 </html>
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        background-color: white;
-        color: black;
-        font-family: "Berkeley Mono", monospace;
-        display: flex;
-        flex-direction: column;
-    }
     main {
-        width: 100%;
+        min-height: 100vh;
+        padding: 2rem 1rem;
+        max-width: 72rem;
+        margin: 0 auto;
         flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        box-sizing: border-box;
-        padding: 2rem 0;
-        min-height: 100vh;
     }
-</style>
-<style is:global>
-    a {
-        color: black;
-        text-decoration: none;
-        border-bottom: 1px solid black;
-    }
-    a:hover {
-        color: black;
-        border-bottom: 2px solid black;
-    }
+
     @media (max-width: 480px) {
-        h2 {
-            font-size: 0.8rem;
-        }
-        /* Add some breathing room on mobile */
         main {
-            padding: 1rem 0;
-        }
-    }
-    @media (max-width: 1068px) {
-        h2 {
-            font-size: 1rem;
+            padding: 1rem;
         }
     }
 </style>

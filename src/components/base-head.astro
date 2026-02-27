@@ -7,9 +7,9 @@ interface Props {
   image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 
-const { title, description, image = "/avatar_small.jpg" } = Astro.props;
+const { title, description, image = "/touch-icon.png" } = Astro.props;
 
 const isProduction = Astro.site?.origin === Astro.url.origin;
 ---
@@ -19,7 +19,7 @@ const isProduction = Astro.site?.origin === Astro.url.origin;
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="mask-icon" href="/mask-icon.svg" color="#fff" />
-<link rel="apple-touch-icon" href="touch-icon.png" />
+<link rel="apple-touch-icon" href="/touch-icon.png" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Preload fonts -->
@@ -52,7 +52,11 @@ const isProduction = Astro.site?.origin === Astro.url.origin;
 <!-- Fathom Analytics -->
 {
     isProduction && (
-        <script is:inline src="https://analytics.ahrefs.com/analytics.js" data-key="/FXI3LtEi8qMKS5LyD0r6A" async />
-        <script is:inline src="https://luckenco.com/luckenco-um-insights.js"  data-website-id="93329f15-472c-4ca2-92fc-fb06386f3818" defer />
+        <script
+            is:inline
+            src="https://luckenco.com/luckenco-um-insights.js"
+            data-website-id="93329f15-472c-4ca2-92fc-fb06386f3818"
+            defer
+        />
     )
 }
