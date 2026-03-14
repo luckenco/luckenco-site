@@ -1,0 +1,58 @@
+---
+import type { WorkCardItem } from "../data/work";
+
+export interface Props extends WorkCardItem {}
+
+const {
+  id,
+  title,
+  description,
+  href,
+  linkLabel,
+  inactive = false,
+} = Astro.props as Props;
+---
+
+<article id={id} class:list={["work-card", { "work-card--inactive": inactive }]}>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  {href && linkLabel && (
+    <a href={href} target="_blank" rel="noopener">{linkLabel}</a>
+  )}
+</article>
+
+<style>
+  .work-card {
+    padding: 1rem;
+    border: 1px solid black;
+  }
+
+  .work-card--inactive {
+    border-style: dashed;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0.5rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .work-card {
+      padding: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+</style>
