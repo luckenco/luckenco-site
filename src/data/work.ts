@@ -54,12 +54,6 @@ const currentlyInvolved: WorkCardItem[] = [
 
 const pastProjects: WorkCardItem[] = [
   {
-    id: "enterprise-infrastructure-migration",
-    title: "Enterprise Infrastructure Migration",
-    description:
-      "Led infrastructure migration and environment setup across Azure, AKS, and PostgreSQL for a multi-service platform.",
-  },
-  {
     id: "invoice-automation",
     title: "Invoice Automation",
     description:
@@ -70,8 +64,6 @@ const pastProjects: WorkCardItem[] = [
     title: "Sales-to-CRM AI Agent",
     description:
       "Cut lead entry time by more than 80%, bringing each interaction under 1 minute by turning unstructured field notes into structured CRM entities.",
-    href: "https://steig.co?ref=luckenco",
-    linkLabel: "Visit steig →",
   },
   {
     id: "real-estate-dedup",
@@ -86,12 +78,6 @@ const pastProjects: WorkCardItem[] = [
       "Reduced the risk of 2-week regulatory shutdowns with tamper-proof sterilization tracking and NFC-enforced QM-compliant workflows.",
   },
   {
-    id: "motorcycle-configurator",
-    title: "3D Motorcycle Configurator",
-    description:
-      "Enabled real-time, in-browser customization of 50+ vehicle parts with sub-2-second rendering latency using hardware-accelerated WebGL.",
-  },
-  {
     id: "lenge",
     title: "lenge",
     description:
@@ -101,6 +87,18 @@ const pastProjects: WorkCardItem[] = [
     href: "https://lenge.club?ref=luckenco",
     linkLabel: "Visit lenge →",
     inactive: true,
+  },
+  {
+    id: "motorcycle-configurator",
+    title: "3D Motorcycle Configurator",
+    description:
+      "Enabled real-time, in-browser customization of 50+ vehicle parts with sub-2-second rendering latency using hardware-accelerated WebGL.",
+  },
+  {
+    id: "enterprise-infrastructure-migration",
+    title: "Enterprise Infrastructure Migration",
+    description:
+      "Led infrastructure migration and environment setup across Azure, AKS, and PostgreSQL for a multi-service platform.",
   },
 ];
 
