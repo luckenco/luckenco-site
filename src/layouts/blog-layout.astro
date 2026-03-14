@@ -11,7 +11,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <head>
         <BaseHead title={title} description={description} />
     </head>
-    <body class="font-mono">
+    <body class="font-sans">
         <a class="skip-link" href="#main-content">Skip to content</a>
         <main id="main-content">
             <a href="/writing" class="back-link">← writing</a>
@@ -35,7 +35,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     .content {
         max-width: 864px;
         margin: 0 auto;
-        padding: 4rem 2rem;
+        padding: 5rem 2.5rem;
     }
 
     .back-link {
@@ -58,13 +58,13 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
         }
 
         .content {
-            padding: 1rem 0 4rem;
+            padding: 1.5rem 0.75rem 4rem;
         }
     }
 
     @media (max-width: 480px) {
         .content {
-            padding: 1rem 0 4rem;
+            padding: 1rem 0.75rem 4rem;
         }
     }
 </style>

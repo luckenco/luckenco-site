@@ -17,7 +17,7 @@ import BaseLayout from "../layouts/base-layout.astro";
             sizes="(max-width: 640px) 176px, 256px"
         />
     </div>
-    <h1 class="heading">constantin luckenbach</h1>
+    <h1 class="heading">Constantin Luckenbach</h1>
     <div class="container">
         <div class="intro">
             <p>I build software and systems.</p>
@@ -25,7 +25,7 @@ import BaseLayout from "../layouts/base-layout.astro";
             <p>There is a lot of value left to unlock using bits.</p>
         </div>
         <nav aria-label="Primary links">
-            <ul class="link-container">
+            <ul class="link-container font-mono">
                 <li>
                     <a href="https://cal.com/luckenbach/quick-chat" target="_blank" rel="noopener noreferrer"
                         >say hello</a
@@ -135,6 +135,7 @@ import BaseLayout from "../layouts/base-layout.astro";
 <style>
     .heading {
         text-align: center;
+        font-family: var(--font-mono);
     }
 
     .avatar-container {

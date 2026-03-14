@@ -15,9 +15,9 @@ const {
 
 <article id={id} class:list={["work-card", { "work-card--inactive": inactive }]}>
   <h3>{title}</h3>
-  <p>{description}</p>
+    <p class="font-mono" style="opacity: 0.7;">{description}</p>
   {href && linkLabel && (
-    <a href={href} target="_blank" rel="noopener">{linkLabel}</a>
+    <a class="font-mono" href={href} target="_blank" rel="noopener">{linkLabel}</a>
   )}
 </article>
 

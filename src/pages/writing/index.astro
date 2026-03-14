@@ -21,7 +21,7 @@ posts.sort((a, b) => {
 
 <BaseLayout title="Writing | @luckenco" description="this is where you can find my writing and explorations.">
     <a href="/" class="back-link">← home</a>
-    <h1>writing</h1>
+    <h1 >writing</h1>
     <ul>
         {posts.map(post => (
         <li>
@@ -42,6 +42,7 @@ posts.sort((a, b) => {
     ul {
         list-style: none;
         padding: 0;
+        font-family: var(--font-mono);
     }
 
     li {
@@ -54,12 +55,14 @@ posts.sort((a, b) => {
     }
 
     li a {
-        color: black;
         text-decoration: none;
-        border-bottom: 1px solid black;
+        color: black;
+        border-bottom: none;
+        font-size: 1.1rem;
     }
 
     li a:hover {
+        text-decoration: none;
         border-bottom: 2px solid black;
     }
 </style>
