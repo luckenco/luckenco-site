@@ -1,6 +1,6 @@
 ---
 import WorkCard from "../components/work-card.astro";
-import { currentlyInvolved, pastProjects } from "../data/work";
+import { partners, projects } from "../data/work";
 import BaseLayout from "../layouts/base-layout.astro";
 ---
 
@@ -22,46 +22,16 @@ import BaseLayout from "../layouts/base-layout.astro";
         </section>
 
         <section class="work-section">
-            <h2>Currently Involved</h2>
+            <h2>Projects</h2>
             <div class="work-list">
-                {currentlyInvolved.map((item) => <WorkCard {...item} />)}
-            </div>
-        </section>
-
-        <section class="work-section">
-            <h2>Past Projects</h2>
-            <div class="work-list">
-                {pastProjects.map((item) => <WorkCard {...item} />)}
+                {projects.map((item) => <WorkCard {...item} />)}
             </div>
         </section>
 
         <section class="work-section">
             <h2>Partners & Organizations</h2>
-            <div class="partner-list">
-                <div class="partner-item">
-                    <span class="partner-name">adler.studio</span>
-                    <p>
-                        Vienna-based product studio building standout digital
-                        products across web, native, and 3D.
-                    </p>
-                    <a
-                        href="https://www.adler.studio/?ref=luckenbach"
-                        target="_blank"
-                        rel="noopener">Visit adler.studio →</a
-                    >
-                </div>
-                <div class="partner-item">
-                    <span class="partner-name">steig</span>
-                    <p>
-                        AI transformation, company-wide tool adoption, and EU
-                        AI Act preparation for decision makers.
-                    </p>
-                    <a
-                        href="https://steig.co?ref=luckenco"
-                        target="_blank"
-                        rel="noopener">Visit steig →</a
-                    >
-                </div>
+            <div class="work-list">
+                {partners.map((item) => <WorkCard {...item} />)}
             </div>
         </section>
     </div>
@@ -93,8 +63,7 @@ import BaseLayout from "../layouts/base-layout.astro";
         margin: 2rem 0 1rem;
     }
 
-    .cta-section p,
-    .partner-item p {
+    .cta-section p {
         font-size: 0.9rem;
         line-height: 1.5;
         margin: 0.5rem 0;
@@ -104,20 +73,10 @@ import BaseLayout from "../layouts/base-layout.astro";
         margin: 2rem 0;
     }
 
-    .work-list,
-    .partner-list {
+    .work-list {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
-    }
-
-    .partner-item {
-        padding: 1rem;
-        border: 1px solid black;
-    }
-
-    .partner-name {
-        font-weight: bold;
     }
 
     /* Tablet and desktop styles */
@@ -130,8 +89,7 @@ import BaseLayout from "../layouts/base-layout.astro";
             font-size: 1.4rem;
         }
 
-        .cta-section p,
-        .partner-item p {
+        .cta-section p {
             font-size: 1rem;
         }
 
@@ -139,8 +97,5 @@ import BaseLayout from "../layouts/base-layout.astro";
             padding: 2rem;
         }
 
-        .partner-item {
-            padding: 1.5rem;
-        }
     }
 </style>

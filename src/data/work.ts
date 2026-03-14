@@ -9,7 +9,7 @@ export type WorkCardItem = {
   imageAlt?: string;
 };
 
-export const currentlyInvolved: WorkCardItem[] = [
+const currentlyInvolved: WorkCardItem[] = [
   {
     id: "vienna-ai-company",
     title: "The Vienna AI Company",
@@ -52,7 +52,7 @@ export const currentlyInvolved: WorkCardItem[] = [
   },
 ];
 
-export const pastProjects: WorkCardItem[] = [
+const pastProjects: WorkCardItem[] = [
   {
     id: "invoice-automation",
     title: "Invoice Automation",
@@ -95,3 +95,28 @@ export const pastProjects: WorkCardItem[] = [
     inactive: true,
   },
 ];
+
+export const partners: WorkCardItem[] = [
+  {
+    id: "partner-adler-studio",
+    title: "adler.studio",
+    description:
+      "Vienna-based product studio building standout digital products across web, native, and 3D.",
+    image: "/img/adler.png",
+    imageAlt: "adler.studio logo",
+    href: "https://www.adler.studio/?ref=luckenbach",
+    linkLabel: "Visit adler.studio →",
+  },
+  {
+    id: "partner-steig",
+    title: "steig",
+    description:
+      "AI transformation, company-wide tool adoption, and EU AI Act preparation for decision makers.",
+    image: "/img/steig.jpg",
+    imageAlt: "steig logo",
+    href: "https://steig.co?ref=luckenco",
+    linkLabel: "Visit steig →",
+  },
+];
+
+export const projects: WorkCardItem[] = [...currentlyInvolved, ...pastProjects];
