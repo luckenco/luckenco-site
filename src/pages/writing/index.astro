@@ -20,49 +20,71 @@ posts.sort((a, b) => {
 ---
 
 <BaseLayout title="Writing | @luckenco" description="this is where you can find my writing and explorations.">
-    <a href="/" class="back-link">← home</a>
-    <h1 >writing</h1>
-    <ul>
-        {posts.map(post => (
-        <li>
-            <a href={`/writing/${post.id}`}>{post.data.title}</a>
-        </li>
-        ))}
-    </ul>
+    <div class="writing-index">
+        <a href="/" class="page-back-link back-link">← home</a>
+        <h1>writing</h1>
+        <ul class="writing-list">
+            {posts.map(post => (
+            <li>
+                <a href={`/writing/${post.id}`}>{post.data.title}</a>
+            </li>
+            ))}
+        </ul>
+    </div>
 </BaseLayout>
 
 <style>
-    .back-link {
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-        color: black;
+    .writing-index {
+        width: min(100%, 40rem);
     }
 
-    ul {
+    .back-link {
+        margin-bottom: 1.5rem;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .writing-list {
         list-style: none;
         padding: 0;
-        font-family: var(--font-mono);
+        margin: 0;
     }
 
-    li {
-        margin-bottom: 0.5rem;
+    .writing-list li {
+        display: flex;
+        align-items: baseline;
+        gap: 0.75rem;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #ececec;
     }
 
-    li:before {
+    .writing-list li:before {
         content: ">";
-        margin-right: 0.5rem;
+        color: var(--fg-muted);
+        font-family: var(--font-mono);
+        font-size: var(--font-size-meta);
+        letter-spacing: -0.015em;
     }
 
-    li a {
+    .writing-list li a {
         text-decoration: none;
-        color: black;
-        border-bottom: none;
-        font-size: 1.1rem;
+        color: inherit;
+        border-bottom: 1px solid transparent;
+        font-size: clamp(1.05rem, 1vw + 0.95rem, 1.2rem);
+        font-weight: 500;
+        letter-spacing: -0.02em;
     }
 
-    li a:hover {
-        text-decoration: none;
-        border-bottom: 2px solid black;
+    .writing-list li a:hover {
+        border-bottom-color: var(--border);
+    }
+
+    @media (max-width: 640px) {
+        .writing-index {
+            width: min(100%, 21rem);
+        }
     }
 </style>

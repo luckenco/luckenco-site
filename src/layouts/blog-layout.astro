@@ -14,7 +14,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <body class="font-sans">
         <a class="skip-link" href="#main-content">Skip to content</a>
         <main id="main-content">
-            <a href="/writing" class="back-link">← writing</a>
+            <a href="/writing" class="page-back-link back-link">← writing</a>
             <div class="content">
                 <slot />
             </div>
@@ -29,13 +29,13 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
         position: relative;
         max-width: 72rem;
         margin: 0 auto;
-        padding: 1rem;
+        padding: 1.5rem 1rem 0;
     }
 
     .content {
-        max-width: 864px;
+        width: min(100%, var(--measure-prose));
         margin: 0 auto;
-        padding: 5rem 2.5rem;
+        padding: 4.5rem 0 4rem;
     }
 
     .back-link {
@@ -44,27 +44,15 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
         left: 2rem;
     }
 
-    @media (max-width: 860px) {
-        .content {
-            max-width: 600px;
-        }
-    }
-
     @media (max-width: 640px) {
         .back-link {
             position: static;
             display: block;
-            margin: 0.5rem 0 1rem;
+            margin: 0 0 1.5rem;
         }
 
         .content {
-            padding: 1.5rem 0.75rem 4rem;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .content {
-            padding: 1rem 0.75rem 4rem;
+            padding: 0 0 4rem;
         }
     }
 </style>

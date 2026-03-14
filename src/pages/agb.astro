@@ -7,10 +7,10 @@ import BaseLayout from "../layouts/base-layout.astro";
     description="Allgemeine Geschäftsbedingungen für Software Engineering & Consulting"
     lang="de"
 >
-    <div class="legal-container">
-        <a href="/" class="back-link">← home</a>
+    <div class="legal-page legal-container">
+        <a href="/" class="page-back-link back-link">← home</a>
         <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
-        <p class="subtitle">Constantin Luckenbach – Software Engineering & Consulting</p>
+        <p class="legal-subtitle">Constantin Luckenbach – Software Engineering & Consulting</p>
         <a href="/terms" class="lang-switch">English version →</a>
 
         <article class="legal-content">
@@ -82,53 +82,12 @@ import BaseLayout from "../layouts/base-layout.astro";
 
 <style>
     .back-link {
-        position: absolute;
-        top: 2rem;
-        left: 2rem;
-        color: black;
+        display: inline-flex;
+        margin-bottom: 1.5rem;
     }
 
     .legal-container {
-        width: 90%;
-        max-width: 740px;
-        margin: 0 auto;
         padding: 1rem;
-    }
-
-    h1 {
-        font-size: 1.4rem;
-        letter-spacing: -1px;
-        margin: 0.5rem 0 0.5rem;
-        text-align: center;
-    }
-
-    .subtitle {
-        text-align: center;
-        font-size: 0.9rem;
-        color: #666;
-        margin: 0 0 1rem;
-    }
-
-    .lang-switch {
-        display: block;
-        text-align: center;
-        margin: 0 0 2rem;
-        font-size: 0.9rem;
-    }
-
-    .legal-content {
-        text-align: left;
-    }
-
-    h2 {
-        font-size: 1rem;
-        margin: 2rem 0 0.5rem;
-    }
-
-    p {
-        font-size: 0.9rem;
-        line-height: 1.6;
-        margin: 0.5rem 0;
     }
 
     section {
@@ -136,20 +95,14 @@ import BaseLayout from "../layouts/base-layout.astro";
     }
 
     @media (min-width: 768px) {
-        h1 {
-            font-size: 1.6rem;
-        }
-
-        h2 {
-            font-size: 1.1rem;
-        }
-
-        p {
-            font-size: 1rem;
-        }
-
         .legal-container {
             padding: 2rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .legal-container {
+            padding: 0.5rem 0;
         }
     }
 </style>

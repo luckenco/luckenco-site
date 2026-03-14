@@ -30,9 +30,9 @@ const hasImage = Boolean(image);
   {image && <img class="work-card__image" src={image} alt={imageAlt ?? `${title} logo`} loading="lazy" />}
   <div class="work-card__content">
     <h3>{title}</h3>
-    <p class="font-mono" style="opacity: 0.7;">{description}</p>
+    <p>{description}</p>
     {href && linkLabel && (
-      <a class="font-mono" href={href} target="_blank" rel="noopener">{linkLabel}</a>
+      <a class="work-card__link" href={href} target="_blank" rel="noopener">{linkLabel}</a>
     )}
   </div>
 </article>
@@ -73,24 +73,39 @@ const hasImage = Boolean(image);
 
   .work-card__content {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
     min-width: 0;
-    margin: 1em;
+    margin: 1rem;
     overflow: hidden;
   }
 
   .work-card--compact .work-card__content {
-    margin: 0.75em 1em;
+    margin: 1rem;
   }
 
   h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
     margin: 0 0 0.5rem;
   }
 
   p {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0.5rem 0;
+    color: var(--fg-muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin: 0;
+    max-width: none;
+  }
+
+  .work-card__link {
+    margin-top: auto;
+    width: fit-content;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-utility);
+    letter-spacing: -0.015em;
   }
 
   @media (min-width: 768px) {
@@ -103,7 +118,7 @@ const hasImage = Boolean(image);
     }
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
     }
 
     p {
