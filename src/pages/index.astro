@@ -23,12 +23,43 @@ const selectedProjectIds = [
 ] as const;
 
 const selectedProjects = selectedProjectIds.map((id) => getProject(id));
+
+const proofPoints = [
+  {
+    id: "vienna-ai-company",
+    parts: [
+      { type: "text", text: "Response times dropped by " },
+      { type: "stat", text: "70%" },
+      { type: "text", text: "." },
+    ],
+  },
+  {
+    id: "invoice-automation",
+    parts: [
+      { type: "text", text: "Delivered " },
+      { type: "stat", text: "120% first-year ROI" },
+      { type: "text", text: " and removed " },
+      { type: "stat", text: "525 hours" },
+      { type: "text", text: " of manual work." },
+    ],
+  },
+  {
+    id: "real-estate-dedup",
+    parts: [
+      { type: "text", text: "Duplicate records dropped by " },
+      { type: "stat", text: "nearly 90%" },
+      { type: "text", text: ", and processing time fell by " },
+      { type: "stat", text: "over 65%" },
+      { type: "text", text: "." },
+    ],
+  },
+] as const;
 ---
 
 <BaseLayout>
     <div class="home-shell">
         <section class="hero" aria-labelledby="home-title">
-            <div class="hero-media">
+            <div class="hero-image">
                 <div class="avatar-container">
                     <Image
                         src={avatar}
@@ -44,7 +75,6 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
             </div>
 
             <div class="hero-copy">
-                <p class="hero-kicker mono-accent">Software engineering for AI systems, automation, and infrastructure.</p>
                 <h1 id="home-title" class="heading">Constantin Luckenbach</h1>
                 <p class="hero-lede">I build software and systems that have to work under real production constraints.</p>
                 <p class="hero-support">
@@ -162,6 +192,21 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
                     </ul>
                 </nav>
             </div>
+
+            <section class="hero-proof" aria-labelledby="hero-proof-title">
+                <h2 id="hero-proof-title" class="sr-only">Selected results</h2>
+                <p class="proof-strip-copy">
+                    {
+                        proofPoints.map((story) => (
+                            <span class="proof-story">
+                                {story.parts.map((part) => (
+                                    <span class:list={[`proof-${part.type}`]}>{part.text}</span>
+                                ))}
+                            </span>
+                        ))
+                    }
+                </p>
+            </section>
         </section>
 
         <section class="selected-work" aria-labelledby="selected-work-title">
@@ -203,22 +248,22 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
     .hero {
         display: grid;
         grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
+        grid-template-areas:
+            "image copy"
+            "proof copy";
         gap: clamp(2rem, 4vw, 4.5rem);
-        align-items: center;
+        align-items: start;
     }
 
-    .hero-media {
+    .hero-image {
+        grid-area: image;
         display: flex;
         justify-content: center;
     }
 
     .hero-copy {
+        grid-area: copy;
         text-align: left;
-    }
-
-    .hero-kicker {
-        margin-bottom: 1rem;
-        color: var(--fg-muted);
     }
 
     .heading {
@@ -231,6 +276,7 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         width: min(100%, 20rem);
         aspect-ratio: 1 / 1;
         position: relative;
+        margin: 0 auto;
     }
 
     .avatar-image {
@@ -260,6 +306,45 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         line-height: 1.75;
         color: var(--fg-muted);
         margin-bottom: 1.5rem;
+    }
+
+    .hero-proof {
+        grid-area: proof;
+        width: min(100%, 20rem);
+        padding-top: 0.2rem;
+    }
+
+    .proof-strip-copy {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(1.12rem, 0.8vw + 1rem, 1.48rem);
+        line-height: 1.16;
+        letter-spacing: -0.045em;
+        color: #8f8f8f;
+    }
+
+    .proof-story {
+        display: inline;
+    }
+
+    .proof-story:not(:last-child)::after {
+        content: " ";
+    }
+
+    .proof-text {
+        color: inherit;
+    }
+
+    .proof-stat {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.82em;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.045em;
+        color: var(--fg);
+        transform: translateY(-0.03em);
+        white-space: nowrap;
     }
 
     ul {
@@ -394,10 +479,14 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
     @media (max-width: 640px) {
         .hero {
             grid-template-columns: 1fr;
+            grid-template-areas:
+                "image"
+                "copy"
+                "proof";
             gap: 1.5rem;
         }
 
-        .hero-media {
+        .hero-image {
             justify-content: center;
         }
 
@@ -423,6 +512,16 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         .hero-support {
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .hero-proof {
+            width: min(100%, 21rem);
+        }
+
+        .proof-strip-copy {
+            text-align: left;
+            font-size: clamp(1.08rem, 5.2vw, 1.42rem);
+            line-height: 1.16;
         }
 
         .hero-actions {
