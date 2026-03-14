@@ -117,7 +117,7 @@ export const partners: WorkCardItem[] = [
     id: "partner-steig",
     title: "steig",
     description:
-      "AI transformation, tool adoption, and EU AI Act preparation for leadership teams.",
+      "Helping leadership teams turn AI strategy into execution with practical tool rollout and EU AI Act readiness.",
     image: "/img/steig.jpg",
     imageAlt: "steig logo",
     href: "https://steig.co?ref=luckenco",

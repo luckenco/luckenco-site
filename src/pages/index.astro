@@ -65,8 +65,9 @@ const proofPoints = [
                         src={avatar}
                         alt="Portrait of Constantin Luckenbach"
                         class="avatar-image"
-                        width={256}
-                        height={256}
+                        width={640}
+                        height={640}
+                        widths={[208, 320, 416, 640]}
                         loading="eager"
                         fetchpriority="high"
                         sizes="(max-width: 720px) 208px, 320px"
@@ -329,6 +330,7 @@ const proofPoints = [
     .hero-proof {
         grid-area: proof;
         width: min(100%, 20rem);
+        margin: 0 auto;
     }
 
     .proof-strip-copy {
@@ -432,8 +434,7 @@ const proofPoints = [
         opacity: 1;
     }
 
-    .hero-mobile-writing,
-    .mobile-work-link {
+    .hero-mobile-writing {
         display: none;
     }
 
@@ -496,6 +497,16 @@ const proofPoints = [
         font-family: var(--font-mono);
         font-size: var(--font-size-utility);
         letter-spacing: -0.015em;
+    }
+
+    .mobile-work-link {
+        display: block;
+        margin-top: 1rem;
+        color: var(--fg-muted);
+    }
+
+    .mobile-work-link a {
+        border-bottom-width: 1px;
     }
 
     @media (max-width: 640px) {
@@ -574,15 +585,6 @@ const proofPoints = [
             line-height: 1.45;
             letter-spacing: -0.01em;
             opacity: 0.62;
-        }
-
-        .mobile-work-link {
-            display: block;
-            margin-top: 1rem;
-        }
-
-        .mobile-work-link a {
-            border-bottom-width: 1px;
         }
 
         .selected-work {
