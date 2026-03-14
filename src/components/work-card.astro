@@ -20,7 +20,11 @@ const hasImage = Boolean(image);
   id={id}
   class:list={[
     "work-card",
-    { "work-card--inactive": inactive, "work-card--compact": !hasImage },
+    {
+      "work-card--inactive": inactive,
+      "work-card--with-image": hasImage,
+      "work-card--compact": !hasImage,
+    },
   ]}
 >
   {image && <img class="work-card__image" src={image} alt={imageAlt ?? `${title} logo`} loading="lazy" />}
@@ -44,18 +48,20 @@ const hasImage = Boolean(image);
     height: 11rem;
     max-height: 11rem;
     min-height: 11rem;
+    overflow: hidden;
   }
 
   .work-card--compact {
-    height: 9rem;
-    max-height: 9rem;
-    min-height: 9rem;
+    height: auto;
+    min-height: 11rem;
+    max-height: 11rem;
   }
 
   .work-card__image {
     flex: 0 0 11rem;
-    width: 11rem;
+    width: auto;
     height: 100%;
+    aspect-ratio: 4 / 5;
     display: block;
     object-fit: cover;
     object-position: center;

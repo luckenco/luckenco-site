@@ -14,7 +14,7 @@ const currentlyInvolved: WorkCardItem[] = [
     id: "vienna-ai-company",
     title: "The Vienna AI Company",
     description:
-      "On LISA, I cut average end-to-end call-system response latency by 70% and built agentic voice capabilities across LiveKit, Gemini, and ElevenLabs.",
+      "On LISA, cut average end-to-end call-system latency by 70% and built agentic voice flows across LiveKit, Gemini, and ElevenLabs.",
     image: "/placeholder.jpg",
     imageAlt: "Placeholder icon for The Vienna AI Company card",
     href: "https://lisa.aicompany.at/",
@@ -24,7 +24,7 @@ const currentlyInvolved: WorkCardItem[] = [
     id: "vertex",
     title: "VERTEX",
     description:
-      "Building automation workflows for Vertex, a retail engineering company operating across physical and digital product experiences.",
+      "Building automation workflows for retail engineering teams working across physical and digital product operations.",
     image: "/placeholder.jpg",
     imageAlt: "Placeholder icon for VERTEX card",
     href: "https://www.vertex.de/en/",
@@ -34,7 +34,7 @@ const currentlyInvolved: WorkCardItem[] = [
     id: "shapeid",
     title: "shapeID",
     description:
-      "Building 3D body-scanning systems that turn mobile capture and scan data into measurement and fit workflows for apparel.",
+      "Building 3D body-scanning systems that turn mobile captures into measurement and fit workflows for apparel teams.",
     image: "/placeholder.jpg",
     imageAlt: "Placeholder icon for shapeID card",
     href: "https://shapeid.io/?ref=luckenco",
@@ -44,7 +44,7 @@ const currentlyInvolved: WorkCardItem[] = [
     id: "rsai",
     title: "rsai.dev",
     description:
-      "Predictable development for unpredictable models. Let the compiler handle the chaos. Minimal Rust framework to interact with LLMs.",
+      "Minimal Rust framework for building LLM systems with stronger compile-time guarantees.",
     image: "/placeholder.jpg",
     imageAlt: "Placeholder icon for rsai.dev card",
     href: "https://rsai.dev?ref=luckenco",
@@ -53,6 +53,12 @@ const currentlyInvolved: WorkCardItem[] = [
 ];
 
 const pastProjects: WorkCardItem[] = [
+  {
+    id: "enterprise-infrastructure-migration",
+    title: "Enterprise Infrastructure Migration",
+    description:
+      "Led infrastructure migration and environment setup across Azure, AKS, and PostgreSQL for a multi-service platform.",
+  },
   {
     id: "invoice-automation",
     title: "Invoice Automation",
@@ -77,7 +83,7 @@ const pastProjects: WorkCardItem[] = [
     id: "steriscan",
     title: "SteriScan",
     description:
-      "Reduced the risk of 2-week regulatory shutdowns with a tamper-proof sterilization tracking system that enforced QM-compliant clinical workflows through NFC authentication.",
+      "Reduced the risk of 2-week regulatory shutdowns with tamper-proof sterilization tracking and NFC-enforced QM-compliant workflows.",
   },
   {
     id: "motorcycle-configurator",
@@ -89,7 +95,9 @@ const pastProjects: WorkCardItem[] = [
     id: "lenge",
     title: "lenge",
     description:
-      "Lenge uses AI to recommend personalized habits based on your goals and energy levels. We then match you with an accountability partner who shares similar ambitions. Together, you embark on a 14-day challenge, supporting and motivating each other along the way.",
+      "AI habit coaching that matched users with accountability partners for 14-day challenges tailored to their goals and energy levels.",
+    image: "/img/lenge.png",
+    imageAlt: "lenge logo",
     href: "https://lenge.club?ref=luckenco",
     linkLabel: "Visit lenge →",
     inactive: true,
@@ -101,7 +109,7 @@ export const partners: WorkCardItem[] = [
     id: "partner-adler-studio",
     title: "adler.studio",
     description:
-      "Vienna-based product studio building standout digital products across web, native, and 3D.",
+      "Vienna-based product studio shipping web, native, and 3D products.",
     image: "/img/adler.png",
     imageAlt: "adler.studio logo",
     href: "https://www.adler.studio/?ref=luckenbach",
@@ -111,7 +119,7 @@ export const partners: WorkCardItem[] = [
     id: "partner-steig",
     title: "steig",
     description:
-      "AI transformation, company-wide tool adoption, and EU AI Act preparation for decision makers.",
+      "AI transformation, tool adoption, and EU AI Act preparation for leadership teams.",
     image: "/img/steig.jpg",
     imageAlt: "steig logo",
     href: "https://steig.co?ref=luckenco",

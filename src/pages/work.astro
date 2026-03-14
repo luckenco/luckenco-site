@@ -11,8 +11,8 @@ import BaseLayout from "../layouts/base-layout.astro";
 
         <section class="work-section cta-section">
             <p>
-                Taking on select projects: AI systems, automation pipelines,
-                and production-grade software.
+                Taking on select projects in AI systems, automation, and
+                software that has to work under real production constraints.
             </p>
             <a
                 href="https://cal.com/luckenbach/quick-chat"
@@ -74,9 +74,10 @@ import BaseLayout from "../layouts/base-layout.astro";
     }
 
     .work-list {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
+        align-items: start;
     }
 
     /* Tablet and desktop styles */
@@ -97,5 +98,12 @@ import BaseLayout from "../layouts/base-layout.astro";
             padding: 2rem;
         }
 
+        .work-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .work-list :global(.work-card--with-image) {
+            grid-column: span 2;
+        }
     }
 </style>
