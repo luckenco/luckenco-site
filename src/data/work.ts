@@ -15,8 +15,8 @@ const currentlyInvolved: WorkCardItem[] = [
     title: "The Vienna AI Company",
     description:
       "On LISA, cut average end-to-end call-system latency by 70% and built agentic voice flows across LiveKit, Gemini, and ElevenLabs.",
-    image: "/img/placeholder.jpg",
-    imageAlt: "Placeholder icon for The Vienna AI Company card",
+    image: "/img/lisa.png",
+    imageAlt: "LISA logo",
     href: "https://lisa.aicompany.at/",
     linkLabel: "Visit LISA →",
   },
@@ -35,8 +35,8 @@ const currentlyInvolved: WorkCardItem[] = [
     title: "shapeID",
     description:
       "Building 3D body-scanning systems that turn mobile captures into measurement and fit workflows for apparel teams.",
-    image: "/img/placeholder.jpg",
-    imageAlt: "Placeholder icon for shapeID card",
+    image: "/img/shape.png",
+    imageAlt: "shapeID logo",
     href: "https://shapeid.io/?ref=luckenco",
     linkLabel: "Visit shapeID →",
   },
@@ -45,8 +45,8 @@ const currentlyInvolved: WorkCardItem[] = [
     title: "rsai.dev",
     description:
       "Minimal Rust framework for building LLM systems with stronger compile-time guarantees.",
-    image: "/img/placeholder.jpg",
-    imageAlt: "Placeholder icon for rsai.dev card",
+    image: "/img/rsai.png",
+    imageAlt: "rsai.dev logo",
     href: "https://rsai.dev?ref=luckenco",
     linkLabel: "View code →",
   },
