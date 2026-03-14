@@ -1,7 +1,51 @@
 ---
 import { Image } from "astro:assets";
 import avatar from "../assets/avatar.webp";
+import { projects } from "../data/work";
 import BaseLayout from "../layouts/base-layout.astro";
+
+const projectById = new Map(projects.map((project) => [project.id, project]));
+
+const getProject = (id: string) => {
+  const project = projectById.get(id);
+
+  if (!project) {
+    throw new Error(`Missing project data for ${id}`);
+  }
+
+  return project;
+};
+
+const proofPoints = [
+  {
+    id: "vienna-ai-company",
+    parts: [
+      { type: "text", text: "Response times dropped by " },
+      { type: "stat", text: "70%" },
+      { type: "text", text: "." },
+    ],
+  },
+  {
+    id: "invoice-automation",
+    parts: [
+      { type: "text", text: "Delivered " },
+      { type: "stat", text: "120% first-year ROI" },
+      { type: "text", text: " and removed " },
+      { type: "stat", text: "525 hours" },
+      { type: "text", text: " of manual work." },
+    ],
+  },
+  {
+    id: "real-estate-dedup",
+    parts: [
+      { type: "text", text: "Duplicate records dropped by " },
+      { type: "stat", text: "nearly 90%" },
+      { type: "text", text: ", and processing time fell by " },
+      { type: "stat", text: "over 65%" },
+      { type: "text", text: "." },
+    ],
+  },
+];
 ---
 
 <BaseLayout>
@@ -19,11 +63,25 @@ import BaseLayout from "../layouts/base-layout.astro";
     </div>
     <h1 class="heading">Constantin Luckenbach</h1>
     <div class="container">
-        <div class="intro">
+        <div class="intro measure-compact">
             <p>I build software and systems.</p>
             <p>My interests are human interaction, AI, energy, and manufacturing.</p>
             <p>There is a lot of value left to unlock using bits.</p>
         </div>
+        <section class="proof-strip" aria-labelledby="proof-strip-title">
+            <h2 id="proof-strip-title" class="sr-only">Selected results</h2>
+            <p class="proof-strip-copy">
+                {
+                    proofPoints.map((story) => (
+                        <span class="proof-story">
+                            {story.parts.map((part) => (
+                                <span class:list={[`proof-${part.type}`]}>{part.text}</span>
+                            ))}
+                        </span>
+                    ))
+                }
+            </p>
+        </section>
         <nav aria-label="Primary links">
             <ul class="link-container font-mono">
                 <li>
@@ -130,19 +188,21 @@ import BaseLayout from "../layouts/base-layout.astro";
             </ul>
         </nav>
     </div>
+
 </BaseLayout>
 
 <style>
     .heading {
         text-align: center;
-        font-family: var(--font-mono);
+        font-family: var(--font-sans);
+        font-weight: 700;
     }
 
     .avatar-container {
         width: 256px;
         height: 256px;
         position: relative;
-        margin-bottom: 1rem;
+        margin-bottom: 1.25rem;
     }
 
     .avatar-image {
@@ -154,15 +214,22 @@ import BaseLayout from "../layouts/base-layout.astro";
     }
 
     h1 {
-        font-size: 2rem;
-        letter-spacing: -2px;
-        margin: 0.5rem 0 0.25rem;
+        font-size: clamp(2.35rem, 5vw, 3.25rem);
+        letter-spacing: -0.045em;
+        margin: 0 0 1rem;
+    }
+
+    .intro {
+        margin: 0 auto;
+        text-align: left;
     }
 
     .intro p {
-        font-size: 1.05rem;
-        font-weight: normal;
-        margin: 0.5rem 0;
+        font-size: var(--font-size-body-lg);
+        line-height: 1.75;
+        font-weight: 400;
+        margin: 0 0 0.9rem;
+        max-width: none;
     }
 
     ul {
@@ -177,16 +244,57 @@ import BaseLayout from "../layouts/base-layout.astro";
 
     .container {
         text-align: center;
-        max-width: 740px;
-        width: 90%;
+        width: min(100%, 42rem);
+    }
+
+    .proof-strip {
+        margin: 2.25rem 0 0;
+        text-align: left;
+        width: min(100%, 35rem);
+    }
+
+    .proof-strip-copy {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(1.45rem, 2.8vw, 2.5rem);
+        line-height: 1.12;
+        letter-spacing: -0.05em;
+        color: #9a9a9a;
+    }
+
+    .proof-story {
+        display: inline;
+    }
+
+    .proof-story:not(:last-child)::after {
+        content: " ";
+    }
+
+    .proof-text {
+        color: inherit;
+    }
+
+    .proof-stat {
+        display: inline-block;
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        font-weight: bold;
+        line-height: 1;
+        letter-spacing: -0.045em;
+        color: var(--fg);
+        transform: translateY(-0.03em);
+        white-space: nowrap;
     }
 
     .link-container {
         display: flex;
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 0.95rem;
         align-items: center;
-        margin: 1.5rem 0;
+        margin: 1.5rem 0 0.85rem;
+        font-size: var(--font-size-meta);
+        line-height: 1.5;
+        letter-spacing: -0.015em;
     }
 
     .social-links {
@@ -195,7 +303,7 @@ import BaseLayout from "../layouts/base-layout.astro";
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        margin-top: 0.5rem;
+        margin-top: 0.75rem;
     }
 
     .social-links a {
@@ -216,12 +324,26 @@ import BaseLayout from "../layouts/base-layout.astro";
         }
 
         h1 {
-            letter-spacing: -1px;
-            font-size: 1.65rem;
+            font-size: clamp(2rem, 9vw, 2.45rem);
+            letter-spacing: -0.04em;
         }
 
         .intro p {
-            font-size: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .container {
+            width: min(100%, 21rem);
+        }
+
+        .proof-strip {
+            margin-top: 1.75rem;
+            width: 100%;
+        }
+
+        .proof-strip-copy {
+            font-size: clamp(1.16rem, 7vw, 1.7rem);
+            line-height: 1.16;
         }
     }
 
@@ -238,10 +360,6 @@ import BaseLayout from "../layouts/base-layout.astro";
     }
 
     @media (min-width: 1024px) {
-        .container {
-            max-width: 780px;
-        }
-
         .intro p {
             font-size: 1.15rem;
         }
