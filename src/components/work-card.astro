@@ -108,6 +108,22 @@ const hasImage = Boolean(image);
     letter-spacing: -0.015em;
   }
 
+  @media (max-width: 767px) {
+    .work-card--with-image {
+      flex-direction: column;
+      height: auto;
+      min-height: 0;
+      max-height: none;
+    }
+
+    .work-card--with-image .work-card__image {
+      flex: 0 0 auto;
+      width: 100%;
+      height: auto;
+      aspect-ratio: auto;
+    }
+  }
+
   @media (min-width: 768px) {
     .work-card {
       padding: 0;
