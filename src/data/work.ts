@@ -5,6 +5,8 @@ export type WorkCardItem = {
   href?: string;
   linkLabel?: string;
   inactive?: boolean;
+  image?: string;
+  imageAlt?: string;
 };
 
 export const currentlyInvolved: WorkCardItem[] = [
@@ -13,6 +15,8 @@ export const currentlyInvolved: WorkCardItem[] = [
     title: "The Vienna AI Company",
     description:
       "On LISA, I cut average end-to-end call-system response latency by 70% and built agentic voice capabilities across LiveKit, Gemini, and ElevenLabs.",
+    image: "/placeholder.jpg",
+    imageAlt: "Placeholder icon for The Vienna AI Company card",
     href: "https://lisa.aicompany.at/",
     linkLabel: "Visit LISA →",
   },
@@ -21,6 +25,8 @@ export const currentlyInvolved: WorkCardItem[] = [
     title: "VERTEX",
     description:
       "Building automation workflows for Vertex, a retail engineering company operating across physical and digital product experiences.",
+    image: "/placeholder.jpg",
+    imageAlt: "Placeholder icon for VERTEX card",
     href: "https://www.vertex.de/en/",
     linkLabel: "Visit Vertex →",
   },
@@ -29,6 +35,8 @@ export const currentlyInvolved: WorkCardItem[] = [
     title: "shapeID",
     description:
       "Building 3D body-scanning systems that turn mobile capture and scan data into measurement and fit workflows for apparel.",
+    image: "/placeholder.jpg",
+    imageAlt: "Placeholder icon for shapeID card",
     href: "https://shapeid.io/?ref=luckenco",
     linkLabel: "Visit shapeID →",
   },
@@ -37,6 +45,8 @@ export const currentlyInvolved: WorkCardItem[] = [
     title: "rsai.dev",
     description:
       "Predictable development for unpredictable models. Let the compiler handle the chaos. Minimal Rust framework to interact with LLMs.",
+    image: "/placeholder.jpg",
+    imageAlt: "Placeholder icon for rsai.dev card",
     href: "https://rsai.dev?ref=luckenco",
     linkLabel: "View code →",
   },

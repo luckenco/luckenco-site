@@ -10,25 +10,70 @@ const {
   href,
   linkLabel,
   inactive = false,
+  image,
+  imageAlt,
 } = Astro.props as Props;
+const hasImage = Boolean(image);
 ---
 
-<article id={id} class:list={["work-card", { "work-card--inactive": inactive }]}>
-  <h3>{title}</h3>
+<article
+  id={id}
+  class:list={[
+    "work-card",
+    { "work-card--inactive": inactive, "work-card--compact": !hasImage },
+  ]}
+>
+  {image && <img class="work-card__image" src={image} alt={imageAlt ?? `${title} logo`} loading="lazy" />}
+  <div class="work-card__content">
+    <h3>{title}</h3>
     <p class="font-mono" style="opacity: 0.7;">{description}</p>
-  {href && linkLabel && (
-    <a class="font-mono" href={href} target="_blank" rel="noopener">{linkLabel}</a>
-  )}
+    {href && linkLabel && (
+      <a class="font-mono" href={href} target="_blank" rel="noopener">{linkLabel}</a>
+    )}
+  </div>
 </article>
 
 <style>
   .work-card {
-    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    padding: 0;
     border: 1px solid black;
+    height: 11rem;
+    max-height: 11rem;
+    min-height: 11rem;
+  }
+
+  .work-card--compact {
+    height: 9rem;
+    max-height: 9rem;
+    min-height: 9rem;
+  }
+
+  .work-card__image {
+    flex: 0 0 11rem;
+    width: 11rem;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
   }
 
   .work-card--inactive {
     border-style: dashed;
+  }
+
+  .work-card__content {
+    flex: 1;
+    min-width: 0;
+    margin: 1em;
+    overflow: hidden;
+  }
+
+  .work-card--compact .work-card__content {
+    margin: 0.75em 1em;
   }
 
   h3 {
@@ -44,7 +89,11 @@ const {
 
   @media (min-width: 768px) {
     .work-card {
-      padding: 1.5rem;
+      padding: 0;
+    }
+
+    .work-card__content {
+      margin: 1em;
     }
 
     h3 {
