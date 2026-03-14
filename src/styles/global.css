@@ -4,6 +4,8 @@
   --fg-muted: #4a4a4a;
   --border: #000;
   --focus: #000;
+  --font-mono: "Berkeley Mono", monospace;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
 }
 
 @font-face {
@@ -24,8 +26,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
-  font-family: "Berkeley Mono", monospace;
+  font-family: var(--font-sans);
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -34,6 +44,14 @@ body {
   word-wrap: break-word;
   overflow-wrap: break-word;
   line-height: 1.6;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
 }
 
 main {
