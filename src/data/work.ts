@@ -104,6 +104,16 @@ const pastProjects: WorkCardItem[] = [
 
 export const partners: WorkCardItem[] = [
   {
+    id: "partner-sicher-ki",
+    title: "sicher-ki.de",
+    description:
+      "Private AI for teams that need control over sensitive data.",
+    image: "/img/sicher.png",
+    imageAlt: "sicher-ki.de logo",
+    href: "https://www.sicher-ki.de/",
+    linkLabel: "Visit sicher-ki.de →",
+  },
+  {
     id: "partner-adler-studio",
     title: "adler.studio",
     description:
@@ -117,7 +127,7 @@ export const partners: WorkCardItem[] = [
     id: "partner-steig",
     title: "steig",
     description:
-      "Helping leadership teams turn AI strategy into execution with practical tool rollout and EU AI Act readiness.",
+      "Strategy partner for regulated industries.",
     image: "/img/steig.jpg",
     imageAlt: "steig logo",
     href: "https://steig.co?ref=luckenco",
