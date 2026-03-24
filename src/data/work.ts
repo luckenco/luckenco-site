@@ -20,6 +20,7 @@ const currentlyInvolved: WorkCardItem[] = [
     href: "https://lisa.aicompany.at/",
     linkLabel: "Visit LISA →",
   },
+  /*
   {
     id: "vertex",
     title: "VERTEX",
@@ -30,6 +31,7 @@ const currentlyInvolved: WorkCardItem[] = [
     href: "https://www.vertex.de/en/",
     linkLabel: "Visit Vertex →",
   },
+  */
   {
     id: "shapeid",
     title: "shapeID",
@@ -106,8 +108,7 @@ export const partners: WorkCardItem[] = [
   {
     id: "partner-sicher-ki",
     title: "sicher-ki.de",
-    description:
-      "Private AI for teams that need control over sensitive data.",
+    description: "Private AI for teams that need control over sensitive data.",
     image: "/img/sicher.png",
     imageAlt: "sicher-ki.de logo",
     href: "https://www.sicher-ki.de/",
@@ -126,8 +127,7 @@ export const partners: WorkCardItem[] = [
   {
     id: "partner-steig",
     title: "steig",
-    description:
-      "Strategy partner for regulated industries.",
+    description: "Strategy partner for regulated industries.",
     image: "/img/steig.jpg",
     imageAlt: "steig logo",
     href: "https://steig.co?ref=luckenco",
