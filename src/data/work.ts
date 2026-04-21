@@ -124,15 +124,6 @@ export const partners: WorkCardItem[] = [
     href: "https://www.adler.studio/?ref=luckenbach",
     linkLabel: "Visit adler.studio →",
   },
-  {
-    id: "partner-steig",
-    title: "steig",
-    description: "Strategy partner for regulated industries.",
-    image: "/img/steig.jpg",
-    imageAlt: "steig logo",
-    href: "https://steig.co?ref=luckenco",
-    linkLabel: "Visit steig →",
-  },
 ];
 
 export const projects: WorkCardItem[] = [...currentlyInvolved, ...pastProjects];
