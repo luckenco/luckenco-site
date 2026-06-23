@@ -12,11 +12,11 @@
     "fix": "biome check --write ."
   },
   "dependencies": {
-    "@astrojs/sitemap": "3.7.2",
-    "astro": "6.1.8"
+    "@astrojs/sitemap": "3.7.3",
+    "astro": "7.0.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "wrangler": "^3.114.17"
+    "@biomejs/biome": "^2.5.1",
+    "wrangler": "^4.104.0"
   }
 }
