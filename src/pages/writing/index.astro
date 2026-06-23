@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/base-layout.astro";
+
 const posts = await getCollection("blog", ({ data }) => {
   return data.published;
 });
@@ -17,6 +18,14 @@ posts.sort((a, b) => {
     new Date(a.data.publishingDate).getTime()
   );
 });
+
+// Standalone (non-collection) pages, e.g. custom work-in-progress pieces.
+const standalone = [
+  {
+    href: "/writing/fighting-forward-head-posture",
+    title: "Fighting forward head posture (kill your nerd neck)",
+  },
+];
 ---
 
 <BaseLayout
@@ -27,6 +36,11 @@ posts.sort((a, b) => {
         <a href="/" class="page-back-link back-link">← home</a>
         <h1>writing</h1>
         <ul class="writing-list">
+            {standalone.map(entry => (
+            <li>
+                <a href={entry.href}>{entry.title}</a>
+            </li>
+            ))}
             {posts.map(post => (
             <li>
                 <a href={`/writing/${post.id}`}>{post.data.title}</a>

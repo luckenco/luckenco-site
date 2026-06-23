@@ -1,0 +1,104 @@
+---
+import BlogLayout from "../../layouts/blog-layout.astro";
+
+export const prerender = true;
+---
+
+<BlogLayout
+    title="Fighting forward head posture (kill your nerd neck) | Constantin Luckenbach"
+    description="Notes on fixing forward head posture and nerd neck."
+>
+    <article>
+        <header>
+            <p class="status mono-accent">work in progress</p>
+            <h1 class="heading">Fighting forward head posture (kill your nerd neck)</h1>
+            <p class="subheading">
+                Due to spending a lot of time at my desk, I look like an unhealthy shrimp. I want to fix my posture. After scavenging the web for a comprehensive guide and not finding one, I decided to write my own.
+            </p>
+        </header>
+
+        <section class="content">
+            <p>
+                I'll add to this whenever I have the time or feel like it.
+            </p>
+            <div class="video-embed">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/syJYZm5OZhE"
+                    title="Huberman on forward head posture"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                ></iframe>
+            </div>
+        </section>
+    </article>
+</BlogLayout>
+
+<style>
+    .status {
+        margin-bottom: 1rem;
+        color: var(--fg-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+    }
+
+    header {
+        margin-bottom: 3rem;
+        text-align: left;
+    }
+
+    .heading {
+        font-size: clamp(2.35rem, 5vw, 3.4rem);
+        letter-spacing: -0.05em;
+        margin: 0 0 1rem;
+        max-width: 14ch;
+    }
+
+    .subheading {
+        max-width: var(--measure-compact);
+        font-size: clamp(1.1rem, 1vw + 1rem, 1.35rem);
+        font-weight: 400;
+        line-height: 1.65;
+        margin: 0 0 1.25rem;
+        color: var(--fg-muted);
+    }
+
+    .content {
+        width: 100%;
+        font-size: var(--font-size-body-lg);
+        line-height: 1.8;
+    }
+
+    .content p {
+        margin: 0 0 1.15rem;
+    }
+
+    .video-embed {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border: 1px solid #e3e3e3;
+    }
+
+    .video-embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    @media (max-width: 480px) {
+        .heading {
+            font-size: clamp(2rem, 10vw, 2.5rem);
+        }
+
+        .subheading {
+            font-size: 1rem;
+        }
+
+        header {
+            margin-bottom: 2rem;
+        }
+    }
+</style>

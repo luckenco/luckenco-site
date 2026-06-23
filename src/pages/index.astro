@@ -247,6 +247,23 @@ const proofPoints = [
                 <a href="/work">View all work →</a>
             </p>
         </section>
+
+        <section class="wip-writing" aria-labelledby="wip-writing-title">
+            <div class="wip-writing-body">
+                <p class="wip-writing-kicker mono-accent">
+                    In my free time
+                </p>
+                <div class="wip-writing-copy">
+                    <h2 id="wip-writing-title">Fighting forward head posture (kill your nerd neck)</h2>
+                    <p class="wip-writing-description">
+                        The Great Unshrimpening — a work-in-progress guide to fixing desk posture.
+                    </p>
+                </div>
+                <a class="wip-writing-link" href="/writing/fighting-forward-head-posture">
+                    I want to sit straight →
+                </a>
+            </div>
+        </section>
     </div>
 
 </BaseLayout>
@@ -265,6 +282,7 @@ const proofPoints = [
         column-gap: clamp(2rem, 4vw, 4.5rem);
         row-gap: 1.25rem;
         align-items: start;
+        margin-top: clamp(1.5rem, 3vw, 2.5rem);
     }
 
     .hero-image {
@@ -438,6 +456,45 @@ const proofPoints = [
         display: none;
     }
 
+    .wip-writing {
+        margin-top: clamp(1.75rem, 3.5vw, 2.5rem);
+    }
+
+    .wip-writing-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+        border: 1px solid #e3e3e3;
+        padding: 1.25rem 1.25rem 1.35rem;
+    }
+
+    .wip-writing-kicker {
+        margin-bottom: 0;
+        color: var(--fg-muted);
+    }
+
+    .wip-writing-copy h2 {
+        font-size: clamp(1.2rem, 1.3vw, 1.45rem);
+        margin-bottom: 0.55rem;
+    }
+
+    .wip-writing-description {
+        margin: 0;
+        max-width: none;
+        color: var(--fg-muted);
+        line-height: 1.68;
+    }
+
+    .wip-writing-link {
+        justify-self: start;
+        display: inline-flex;
+        margin-top: 0.35rem;
+        font-family: var(--font-mono);
+        font-size: var(--font-size-utility);
+        letter-spacing: -0.015em;
+        border-bottom-width: 1px;
+    }
+
     .selected-work {
         margin-top: clamp(4.4rem, 9.5vw, 6.8rem);
         padding-top: 1.25rem;
@@ -585,6 +642,10 @@ const proofPoints = [
             line-height: 1.45;
             letter-spacing: -0.01em;
             opacity: 0.62;
+        }
+
+        .wip-writing {
+            margin-top: clamp(1.5rem, 4.5vw, 2rem);
         }
 
         .selected-work {
