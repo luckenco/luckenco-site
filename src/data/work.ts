@@ -12,9 +12,9 @@ export type WorkCardItem = {
 const currentlyInvolved: WorkCardItem[] = [
   {
     id: "vienna-ai-company",
-    title: "The Vienna AI Company",
+    title: "LISA",
     description:
-      "On LISA, cut average end-to-end call-system latency by 70% and built agentic voice flows across LiveKit, Gemini, and ElevenLabs.",
+      "Backed by automotive-industry investors, LISA moved from demos into dealership pilots. My work was concentrated in several distinct systems: live calls, knowledge ingestion, AWS infrastructure, and a secure bridge to legacy dealership software without a usable API.",
     image: "/img/lisa.png",
     imageAlt: "LISA logo",
     href: "https://lisa.aicompany.at/",
@@ -36,7 +36,7 @@ const currentlyInvolved: WorkCardItem[] = [
     id: "shapeid",
     title: "shapeID",
     description:
-      "Building 3D body-scanning systems that turn mobile captures into measurement and fit workflows for apparel teams.",
+      "Connected scanner hardware to a mobile app that turns captures into private, interactive 3D models.",
     image: "/img/shape.png",
     imageAlt: "shapeID logo",
     href: "https://shapeid.io/?ref=luckenco",
@@ -69,9 +69,9 @@ const pastProjects: WorkCardItem[] = [
   },
   {
     id: "real-estate-dedup",
-    title: "Real Estate Deduplication Pipeline",
+    title: "Property Data Pipeline",
     description:
-      "Built a deduplication pipeline for nationwide Swiss property data, reducing record overlap by nearly 90% and processing time by over 65%.",
+      "Turned nationwide listing data from Switzerland’s three largest property platforms into one clean, usable dataset.",
   },
   {
     id: "steriscan",

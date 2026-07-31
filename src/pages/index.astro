@@ -17,43 +17,12 @@ const getProject = (id: string) => {
 };
 
 const selectedProjectIds = [
-  "vienna-ai-company",
-  "invoice-automation",
   "real-estate-dedup",
+  "shapeid",
+  "vienna-ai-company",
 ] as const;
 
 const selectedProjects = selectedProjectIds.map((id) => getProject(id));
-
-const proofPoints = [
-  {
-    id: "vienna-ai-company",
-    parts: [
-      { type: "text", text: "Response times dropped by " },
-      { type: "stat", text: "70%" },
-      { type: "text", text: "." },
-    ],
-  },
-  {
-    id: "invoice-automation",
-    parts: [
-      { type: "text", text: "Delivered " },
-      { type: "stat", text: "120% first-year ROI" },
-      { type: "text", text: " and removed " },
-      { type: "stat", text: "525 hours" },
-      { type: "text", text: " of manual work." },
-    ],
-  },
-  {
-    id: "real-estate-dedup",
-    parts: [
-      { type: "text", text: "Duplicate records dropped by " },
-      { type: "stat", text: "nearly 90%" },
-      { type: "text", text: ", and processing time fell by " },
-      { type: "stat", text: "over 65%" },
-      { type: "text", text: "." },
-    ],
-  },
-] as const;
 ---
 
 <BaseLayout>
@@ -75,34 +44,28 @@ const proofPoints = [
                 </div>
             </div>
 
-            <section class="hero-proof" aria-labelledby="hero-proof-title">
-                <h2 id="hero-proof-title" class="sr-only">Selected results</h2>
-                <p class="proof-strip-copy">
-                    {
-                        proofPoints.map((story) => (
-                            <span class="proof-story">
-                                {story.parts.map((part) => (
-                                    <span class:list={[`proof-${part.type}`]}>{part.text}</span>
-                                ))}
-                            </span>
-                        ))
-                    }
-                </p>
-            </section>
-
             <div class="hero-copy">
                 <h1 id="home-title" class="heading">Constantin Luckenbach</h1>
-                <p class="hero-lede">I build systems that stay reliable under real-world constraints.</p>
+                <p class="hero-lede">I build systems that connect AI, data, and the real world.</p>
                 <p class="hero-support">
-                    Recent work includes agentic voice, finance operations automation, and large-scale data pipelines.
+                    Nationwide property data. Scanner hardware to interactive 3D. AI that handles real phone calls.
                 </p>
+
+                <section class="hero-proof" aria-labelledby="hero-proof-title">
+                    <h2 id="hero-proof-title" class="sr-only">Selected results</h2>
+                    <p class="proof-strip-copy">
+                        Across projects, my systems have delivered{" "}
+                        <span class="proof-stat">120% first-year ROI</span>, reduced data-entry errors by{" "}
+                        <span class="proof-stat">78%</span>, and lowered the risk of regulatory shutdowns.
+                    </p>
+                </section>
 
                 <div class="hero-actions">
                     <a
                         class="hero-cta"
                         href="https://cal.com/luckenbach/quick-chat"
                         target="_blank"
-                        rel="noopener noreferrer">work together</a
+                        rel="noopener noreferrer">talk through my problem</a
                     >
 
                     <nav class="hero-primary-links" aria-label="Primary links">
@@ -116,8 +79,6 @@ const proofPoints = [
                         </ul>
                     </nav>
                 </div>
-
-                <p class="hero-mobile-proof mono-accent">Avg outcomes: 2.4x ROI, &lt;1 quarter to launch.</p>
 
                 <nav aria-label="Social links">
                     <ul class="social-links">
@@ -173,7 +134,7 @@ const proofPoints = [
                             </a>
                         </li>
                         <li>
-                            <a href="https://instagram.com/https://www.instagram.com/constantin.luckenbach" aria-label="Instagram Profile" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/constantin.luckenbach" aria-label="Instagram Profile" target="_blank" rel="noopener noreferrer">
                                 <svg
                                     width="24"
                                     height="24"
@@ -219,13 +180,13 @@ const proofPoints = [
         <section class="selected-work" aria-labelledby="selected-work-title">
             <div class="selected-work-header">
                 <p class="selected-work-kicker mono-accent">Selected work</p>
-                <h2 id="selected-work-title">Outcomes from recent projects.</h2>
+                <h2 id="selected-work-title">A few hard problems I’ve worked on.</h2>
             </div>
 
             <ul class="selected-work-list">
                 {
                     selectedProjects.map((project, index) => (
-                        <li class:list={["selected-work-item", { "selected-work-item--wide": index === 2 }]}>
+                        <li class:list={["selected-work-item", { "selected-work-item--wide": index === 0 }]}>
                             <article>
                                 <p class="selected-work-index mono-accent">{String(index + 1).padStart(2, "0")}</p>
                                 <h3>{project.title}</h3>
@@ -276,11 +237,8 @@ const proofPoints = [
     .hero {
         display: grid;
         grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
-        grid-template-areas:
-            "image copy"
-            "proof copy";
+        grid-template-areas: "image copy";
         column-gap: clamp(2rem, 4vw, 4.5rem);
-        row-gap: 1.25rem;
         align-items: start;
         margin-top: clamp(1.5rem, 3vw, 2.5rem);
     }
@@ -338,17 +296,9 @@ const proofPoints = [
         margin-bottom: 1.35rem;
     }
 
-        .hero-mobile-proof {
-        display: none;
-        margin: 0 0 0.9rem;
-        color: var(--fg-muted);
-        text-wrap: pretty;
-    }
-
     .hero-proof {
-        grid-area: proof;
-        width: min(100%, 20rem);
-        margin: 0 auto;
+        max-width: 34rem;
+        margin-bottom: 1.35rem;
     }
 
     .proof-strip-copy {
@@ -358,18 +308,6 @@ const proofPoints = [
         line-height: 1.26;
         letter-spacing: -0.02em;
         color: var(--fg-muted);
-    }
-
-    .proof-story {
-        display: inline;
-    }
-
-    .proof-story:not(:last-child)::after {
-        content: " ";
-    }
-
-    .proof-text {
-        color: inherit;
     }
 
     .proof-stat {
@@ -407,16 +345,24 @@ const proofPoints = [
         min-height: 2.85rem;
         padding: 0.7rem 1.1rem;
         border: 1px solid var(--border);
-        border-bottom-width: 1px;
+        background: var(--fg);
+        color: var(--bg);
         font-family: var(--font-mono);
         font-size: var(--font-size-utility);
         letter-spacing: -0.015em;
         line-height: 1;
+        transition:
+            transform 140ms cubic-bezier(0.23, 1, 0.32, 1),
+            background-color 140ms ease;
     }
 
     .hero-cta:hover {
         border-bottom-width: 1px;
-        background: #f6f6f6;
+        background: #252525;
+    }
+
+    .hero-cta:active {
+        transform: scale(0.97);
     }
 
     .link-container {
@@ -599,20 +545,16 @@ const proofPoints = [
             margin-bottom: 0.55rem;
         }
 
-        .hero-mobile-proof {
-            display: block;
-            max-width: 28ch;
-            margin: 0.3rem auto 0.55rem;
-            font-size: 0.96rem;
-            line-height: 1.5;
-        }
-
         .hero-support {
-            display: none;
+            max-width: 31ch;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-proof {
-            display: none;
+            max-width: 34rem;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-actions {
