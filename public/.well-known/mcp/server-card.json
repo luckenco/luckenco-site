@@ -1,0 +1,22 @@
+{
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "luckenbach-public-profile",
+    "title": "Constantin Luckenbach Public Profile",
+    "version": "1.0.0"
+  },
+  "description": "Read Constantin Luckenbach's public profile, selected work, and contact links.",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://luckenbach.io/mcp"
+  },
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    }
+  },
+  "authentication": {
+    "required": false,
+    "schemes": []
+  }
+}

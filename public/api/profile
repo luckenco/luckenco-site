@@ -1,0 +1,17 @@
+{
+  "name": "Constantin Luckenbach",
+  "description": "Systems engineer building products across AI, data, hardware, and the real world.",
+  "highlights": [
+    "Delivered 120% first-year ROI on an invoice automation system",
+    "Reduced data-entry errors by 78%",
+    "Built nationwide property data pipelines, interactive 3D systems, and production voice AI"
+  ],
+  "links": {
+    "website": "https://luckenbach.io/",
+    "work": "https://luckenbach.io/work",
+    "writing": "https://luckenbach.io/writing",
+    "calendar": "https://cal.com/luckenbach/quick-chat",
+    "github": "https://github.com/luckenco",
+    "linkedin": "https://linkedin.com/in/luckenco"
+  }
+}

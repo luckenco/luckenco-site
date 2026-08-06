@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "constantin-profile",
+      "type": "skill-md",
+      "description": "Find accurate public information about Constantin Luckenbach's work, writing, engineering experience, and contact options. Use when assessing project fit, preparing an introduction, or arranging a call.",
+      "url": "/.well-known/agent-skills/constantin-profile/SKILL.md",
+      "digest": "sha256:cb0569e21418f5ad794e23b99b822021c3a66400a6cd189c1dfc92ff0aa4533f"
+    }
+  ]
+}

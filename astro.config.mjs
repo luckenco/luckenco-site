@@ -3,6 +3,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://luckenco.com",
+  site: "https://luckenbach.io",
   integrations: [sitemap()],
 });

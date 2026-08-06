@@ -1,0 +1,25 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://luckenbach.io/api/profile",
+      "service-desc": [
+        {
+          "href": "https://luckenbach.io/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://luckenbach.io/api-docs.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://luckenbach.io/api/status",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

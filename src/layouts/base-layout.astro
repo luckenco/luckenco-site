@@ -21,6 +21,57 @@ const {
             <slot />
         </main>
         <Footer />
+        <script is:inline>
+            const modelContext = document.modelContext ?? navigator.modelContext;
+
+            if (modelContext) {
+                const controller = new AbortController();
+                const options = { signal: controller.signal };
+
+                modelContext.registerTool({
+                    name: "get_profile",
+                    description: "Get Constantin Luckenbach's public professional profile, selected results, and canonical links.",
+                    inputSchema: {
+                        type: "object",
+                        properties: {},
+                        additionalProperties: false,
+                    },
+                    annotations: { readOnlyHint: true },
+                    async execute() {
+                        const response = await fetch("/api/profile");
+                        return {
+                            content: [{ type: "text", text: await response.text() }],
+                        };
+                    },
+                }, options);
+
+                modelContext.registerTool({
+                    name: "navigate_site",
+                    description: "Navigate the visible page to Constantin's home, work, or writing section.",
+                    inputSchema: {
+                        type: "object",
+                        properties: {
+                            destination: {
+                                type: "string",
+                                enum: ["home", "work", "writing"],
+                                description: "The section to show in the current tab.",
+                            },
+                        },
+                        required: ["destination"],
+                        additionalProperties: false,
+                    },
+                    async execute({ destination }) {
+                        const paths = { home: "/", work: "/work", writing: "/writing" };
+                        location.assign(paths[destination]);
+                        return {
+                            content: [{ type: "text", text: `Navigating to ${destination}.` }],
+                        };
+                    },
+                }, options);
+
+                addEventListener("pagehide", () => controller.abort(), { once: true });
+            }
+        </script>
     </body>
 </html>
 <style>
