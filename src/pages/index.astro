@@ -39,26 +39,18 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
                         widths={[208, 320, 416, 640]}
                         loading="eager"
                         fetchpriority="high"
-                        sizes="(max-width: 720px) 208px, 320px"
+                        sizes="(max-width: 640px) 80px, 256px"
                     />
                 </div>
             </div>
 
             <div class="hero-copy">
-                <h1 id="home-title" class="heading">Constantin Luckenbach</h1>
-                <p class="hero-lede">I build systems that connect AI, data, and the real world.</p>
+                <p class="hero-name">Constantin Luckenbach</p>
+                <h1 id="home-title">I build systems that connect AI, data, and the real world.</h1>
                 <p class="hero-support">
-                    Nationwide property data. Scanner hardware to interactive 3D. AI that handles real phone calls.
+                    I combine hands-on engineering with business experience. I build software that fits your processes,
+                    integrates with existing systems, and works reliably in production.
                 </p>
-
-                <section class="hero-proof" aria-labelledby="hero-proof-title">
-                    <h2 id="hero-proof-title" class="sr-only">Selected results</h2>
-                    <p class="proof-strip-copy">
-                        Across projects, my systems have delivered{" "}
-                        <span class="proof-stat">120% first-year ROI</span>, reduced data-entry errors by{" "}
-                        <span class="proof-stat">78%</span>, and lowered the risk of regulatory shutdowns.
-                    </p>
-                </section>
 
                 <div class="hero-actions">
                     <a
@@ -79,6 +71,15 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
                         </ul>
                     </nav>
                 </div>
+
+                <section class="hero-proof" aria-labelledby="hero-proof-title">
+                    <h2 id="hero-proof-title" class="sr-only">Selected results</h2>
+                    <p>
+                        Across projects, my systems have delivered{" "}
+                        <span class="proof-stat">120% first-year ROI</span>, reduced data-entry errors by{" "}
+                        <span class="proof-stat">78%</span>, and lowered the risk of regulatory shutdowns.
+                    </p>
+                </section>
 
                 <nav aria-label="Social links">
                     <ul class="social-links">
@@ -171,10 +172,17 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
                     </ul>
                 </nav>
 
-                <p class="hero-mobile-writing">
-                    You might also like my <a href="/writing">writing</a>.
-                </p>
             </div>
+
+            <section class="current-project" aria-labelledby="current-project-title">
+                <p class="mono-accent">Currently building</p>
+                <h2 id="current-project-title">
+                    <a href="https://sicher-ki.de" target="_blank" rel="noopener noreferrer">
+                        SICHER KI <span aria-hidden="true">↗</span>
+                    </a>
+                </h2>
+                <p>Helping businesses put AI to work while keeping sensitive data under their control.</p>
+            </section>
         </section>
 
         <section class="selected-work" aria-labelledby="selected-work-title">
@@ -205,7 +213,7 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
             </ul>
 
             <p class="mobile-work-link mono-accent">
-                <a href="/work">View all work →</a>
+                <a href="/work">View more work →</a>
             </p>
         </section>
 
@@ -236,9 +244,13 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
 
     .hero {
         display: grid;
-        grid-template-columns: minmax(15rem, 20rem) minmax(0, 1fr);
-        grid-template-areas: "image copy";
-        column-gap: clamp(2rem, 4vw, 4.5rem);
+        grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr);
+        grid-template-areas:
+            "image copy"
+            "project copy";
+        grid-template-rows: auto 1fr;
+        row-gap: 1.25rem;
+        column-gap: clamp(2rem, 5vw, 5rem);
         align-items: start;
         margin-top: clamp(1.5rem, 3vw, 2.5rem);
     }
@@ -254,14 +266,15 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         text-align: left;
     }
 
-    .heading {
-        font-family: var(--font-sans);
-        font-weight: 700;
+    .hero-name {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        color: var(--fg-muted);
         margin-bottom: 1rem;
     }
 
     .avatar-container {
-        width: min(100%, 20rem);
+        width: min(100%, 16rem);
         aspect-ratio: 1 / 1;
         position: relative;
         margin: 0 auto;
@@ -277,47 +290,37 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
     }
 
     h1 {
-        font-size: clamp(2.45rem, 4.55vw, 3.85rem);
+        max-width: 24ch;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        font-weight: 650;
+        line-height: 1.12;
         letter-spacing: -0.04em;
-    }
-
-    .hero-lede {
-        max-width: 19ch;
-        font-size: clamp(1.2rem, 1.02vw + 1rem, 1.52rem);
-        line-height: 1.32;
-        letter-spacing: -0.02em;
-        margin-bottom: 0.75rem;
+        margin-bottom: 1.25rem;
     }
 
     .hero-support {
         max-width: 34rem;
-        font-size: var(--font-size-body-lg);
+        font-size: 1rem;
         line-height: 1.66;
         color: var(--fg-muted);
-        margin-bottom: 1.35rem;
+        margin-bottom: 1.75rem;
     }
 
     .hero-proof {
         max-width: 34rem;
-        margin-bottom: 1.35rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.65;
+        color: var(--fg-muted);
     }
 
-    .proof-strip-copy {
+    .hero-proof p {
         margin: 0;
-        font-family: var(--font-sans);
-        font-size: clamp(1.02rem, 0.62vw + 0.98rem, 1.28rem);
-        line-height: 1.26;
-        letter-spacing: -0.02em;
-        color: var(--fg-muted);
     }
 
     .proof-stat {
         display: inline-block;
-        font-family: var(--font-mono);
-        font-size: 0.88em;
-        font-weight: 700;
-        line-height: 1;
-        letter-spacing: -0.02em;
+        font-weight: 600;
         color: var(--fg);
         white-space: nowrap;
     }
@@ -337,19 +340,20 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         flex-wrap: wrap;
         align-items: center;
         gap: 1rem 1.5rem;
-        margin-bottom: 0.95rem;
+        margin-bottom: 1.5rem;
     }
 
     .hero-cta {
         display: inline-flex;
         align-items: center;
-        min-height: 2.85rem;
+        box-sizing: border-box;
+        min-height: 3rem;
         padding: 0.7rem 1.1rem;
         border: 1px solid var(--border);
         background: var(--fg);
         color: var(--bg);
         font-family: var(--font-mono);
-        font-size: var(--font-size-utility);
+        font-size: 0.9rem;
         letter-spacing: -0.015em;
         line-height: 1;
         transition:
@@ -371,36 +375,74 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         flex-wrap: wrap;
         gap: 0.9rem 1.25rem;
         align-items: center;
-        font-size: var(--font-size-utility);
+        font-size: 0.875rem;
         line-height: 1.5;
         letter-spacing: -0.015em;
     }
 
     .link-container a {
-        border-bottom-width: 1px;
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        border-bottom: none;
+        text-decoration: underline;
     }
 
     .social-links {
         display: flex;
-        gap: 0.45rem;
+        gap: 0.125rem;
         flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
     }
 
     .social-links a {
-        color: inherit;
         border-bottom: none;
-        opacity: 0.85;
-        transition: opacity 0.2s ease;
+        color: var(--fg-muted);
     }
 
     .social-links a:hover {
-        opacity: 1;
+        color: var(--fg);
     }
 
-    .hero-mobile-writing {
-        display: none;
+    .social-links svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .current-project {
+        grid-area: project;
+        width: min(100%, 16rem);
+        justify-self: center;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .current-project .mono-accent {
+        font-size: 0.8rem;
+    }
+
+    .current-project p {
+        margin: 0;
+        color: var(--fg-muted);
+    }
+
+    .current-project h2 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .current-project a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        min-height: 44px;
+        border-bottom: none;
+        text-decoration: underline;
+    }
+
+    .current-project a:hover {
+        text-decoration-thickness: 2px;
     }
 
     .wip-writing {
@@ -518,81 +560,38 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
             grid-template-columns: 1fr;
             grid-template-areas:
                 "image"
-                "copy";
-            gap: 1rem;
+                "copy"
+                "project";
+            grid-template-rows: auto;
+            gap: 1.5rem;
         }
 
         .hero-image {
-            justify-content: center;
+            justify-content: flex-start;
         }
 
-        .hero-copy {
-            text-align: center;
+        .current-project {
+            margin-top: 0.5rem;
+            width: min(100%, 22rem);
+            justify-self: start;
         }
 
         .avatar-container {
-            width: 11.5rem;
+            width: 5rem;
+            margin: 0;
         }
 
         h1 {
-            font-size: clamp(1.6875rem, 8.2vw, 2.05rem);
+            font-size: clamp(1.9rem, 8vw, 2.5rem);
             letter-spacing: -0.035em;
         }
 
-        .hero-lede {
-            max-width: 19ch;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 0.55rem;
-        }
-
-        .hero-support {
-            max-width: 31ch;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 1rem;
-        }
-
-        .hero-proof {
-            max-width: 34rem;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 1rem;
-        }
-
         .hero-actions {
-            justify-content: center;
-            margin-bottom: 0.65rem;
             gap: 0.85rem 1.1rem;
-        }
-
-        .hero-cta {
-            justify-content: center;
-            width: 100%;
-            max-width: 20rem;
-        }
-
-        .hero-primary-links {
-            display: none;
-        }
-
-        .social-links {
-            justify-content: center;
         }
 
         .social-links li:nth-child(n + 4) {
             display: none;
-        }
-
-        .hero-mobile-writing {
-            display: block;
-            margin: 0.35rem 0 0;
-            text-align: center;
-            font-family: var(--font-sans);
-            font-size: 1rem;
-            line-height: 1.45;
-            letter-spacing: -0.01em;
-            opacity: 0.62;
         }
 
         .wip-writing {
@@ -617,27 +616,6 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
             display: inline-flex;
             align-items: center;
             min-height: 44px;
-        }
-    }
-
-    @media (max-width: 640px) and (max-height: 700px) {
-        .hero {
-            gap: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .avatar-container {
-            width: 10rem;
-        }
-
-        .hero-support {
-            display: none;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .hero {
-            grid-template-columns: minmax(18rem, 22rem) minmax(0, 1fr);
         }
     }
 
