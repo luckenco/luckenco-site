@@ -1,6 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import avatar from "../assets/avatar.webp";
+import SicherKiCallout from "../components/sicher-ki-callout.astro";
 import { projects } from "../data/work";
 import BaseLayout from "../layouts/base-layout.astro";
 
@@ -27,25 +26,15 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
 
 <BaseLayout>
     <div class="home-shell">
+        <header class="masthead">
+            <a href="/">Constantin Luckenbach</a>
+            <nav aria-label="Site navigation">
+                <a href="/work">work</a>
+                <a href="/writing">writing</a>
+            </nav>
+        </header>
         <section class="hero" aria-labelledby="home-title">
-            <div class="hero-image">
-                <div class="avatar-container">
-                    <Image
-                        src={avatar}
-                        alt="Portrait of Constantin Luckenbach"
-                        class="avatar-image"
-                        width={640}
-                        height={640}
-                        widths={[208, 320, 416, 640]}
-                        loading="eager"
-                        fetchpriority="high"
-                        sizes="(max-width: 640px) 80px, 256px"
-                    />
-                </div>
-            </div>
-
             <div class="hero-copy">
-                <p class="hero-name">Constantin Luckenbach</p>
                 <h1 id="home-title">I build systems that connect AI, data, and the real world.</h1>
                 <p class="hero-support">
                     I combine hands-on engineering with business experience. I build software that fits your processes,
@@ -57,19 +46,8 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
                         class="hero-cta"
                         href="https://cal.com/luckenbach/quick-chat"
                         target="_blank"
-                        rel="noopener noreferrer">book a quick call</a
+                        rel="noopener noreferrer">book a quick call with me <span aria-hidden="true">↗</span></a
                     >
-
-                    <nav class="hero-primary-links" aria-label="Primary links">
-                        <ul class="link-container font-mono">
-                            <li>
-                                <a href="/writing">writing</a>
-                            </li>
-                            <li>
-                                <a href="/work">work</a>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
 
                 <section class="hero-proof" aria-labelledby="hero-proof-title">
@@ -174,16 +152,9 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
 
             </div>
 
-            <section class="current-project" aria-labelledby="current-project-title">
-                <p class="mono-accent">Currently building</p>
-                <h2 id="current-project-title">
-                    <a href="https://sicher-ki.de" target="_blank" rel="noopener noreferrer">
-                        SICHER KI <span aria-hidden="true">↗</span>
-                    </a>
-                </h2>
-                <p>Helping businesses put AI to work while keeping sensitive data under their control.</p>
-            </section>
         </section>
+
+        <SicherKiCallout locale="en" />
 
         <section class="selected-work" aria-labelledby="selected-work-title">
             <div class="selected-work-header">
@@ -239,77 +210,96 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
 
 <style>
     .home-shell {
-        width: min(100%, 68rem);
+        width: min(100%, 980px);
+    }
+
+    .masthead {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 4px 0 20px;
+        border-bottom: 1px solid #e4e4e7;
+        font-family: var(--font-mono);
+        font-size: 13px;
+    }
+
+    .masthead a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        border: 0;
+    }
+
+    .masthead a:hover {
+        text-decoration: underline;
+    }
+
+    .masthead nav {
+        display: flex;
+        gap: 28px;
     }
 
     .hero {
-        display: grid;
-        grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr);
-        grid-template-areas:
-            "image copy"
-            "project copy";
-        grid-template-rows: auto 1fr;
-        row-gap: 1.25rem;
-        column-gap: clamp(2rem, 5vw, 5rem);
-        align-items: start;
-        margin-top: clamp(1.5rem, 3vw, 2.5rem);
-    }
-
-    .hero-image {
-        grid-area: image;
-        display: flex;
-        justify-content: center;
+        padding: 52px 0 24px;
     }
 
     .hero-copy {
-        grid-area: copy;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+        grid-template-areas:
+            "title support"
+            "title actions"
+            "proof socials";
+        column-gap: 48px;
         text-align: left;
     }
 
-    .hero-name {
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        color: var(--fg-muted);
-        margin-bottom: 1rem;
-    }
-
-    .avatar-container {
-        width: min(100%, 16rem);
-        aspect-ratio: 1 / 1;
-        position: relative;
-        margin: 0 auto;
-    }
-
-    .avatar-image {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center 30%;
-        border-radius: 18px;
-    }
-
     h1 {
-        max-width: 24ch;
-        font-size: clamp(2rem, 3.5vw, 3rem);
+        grid-area: title;
+        max-width: 17ch;
+        margin-bottom: 36px;
+        font-size: clamp(38px, 4vw, 56px);
         font-weight: 650;
-        line-height: 1.12;
-        letter-spacing: -0.04em;
-        margin-bottom: 1.25rem;
+        line-height: 1.06;
+        letter-spacing: -0.045em;
     }
 
     .hero-support {
-        max-width: 34rem;
-        font-size: 1rem;
+        grid-area: support;
+        align-self: end;
+        margin-bottom: 24px;
+        font-size: 17px;
         line-height: 1.66;
         color: var(--fg-muted);
-        margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+        grid-area: actions;
+        align-self: start;
+        margin-bottom: 22px;
+    }
+
+    .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        min-height: 48px;
+        border: 0;
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        text-decoration: underline;
+    }
+
+    .hero-cta:hover {
+        border: 0;
+        text-decoration-thickness: 2px;
     }
 
     .hero-proof {
-        max-width: 34rem;
-        margin-bottom: 0.75rem;
-        font-size: 0.875rem;
+        grid-area: proof;
+        margin: 0;
+        font-size: 13px;
         line-height: 1.65;
         color: var(--fg-muted);
     }
@@ -319,10 +309,8 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
     }
 
     .proof-stat {
-        display: inline-block;
         font-weight: 600;
         color: var(--fg);
-        white-space: nowrap;
     }
 
     ul {
@@ -335,65 +323,16 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         margin: 0;
     }
 
-    .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1rem 1.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .hero-cta {
-        display: inline-flex;
-        align-items: center;
-        box-sizing: border-box;
-        min-height: 3rem;
-        padding: 0.7rem 1.1rem;
-        border: 1px solid var(--border);
-        background: var(--fg);
-        color: var(--bg);
-        font-family: var(--font-mono);
-        font-size: 0.9rem;
-        letter-spacing: -0.015em;
-        line-height: 1;
-        transition:
-            transform 140ms cubic-bezier(0.23, 1, 0.32, 1),
-            background-color 140ms ease;
-    }
-
-    .hero-cta:hover {
-        border-bottom-width: 1px;
-        background: #252525;
-    }
-
-    .hero-cta:active {
-        transform: scale(0.97);
-    }
-
-    .link-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.9rem 1.25rem;
-        align-items: center;
-        font-size: 0.875rem;
-        line-height: 1.5;
-        letter-spacing: -0.015em;
-    }
-
-    .link-container a {
-        display: inline-flex;
-        align-items: center;
-        min-height: 44px;
-        border-bottom: none;
-        text-decoration: underline;
+    .hero-copy > nav {
+        grid-area: socials;
+        align-self: end;
     }
 
     .social-links {
         display: flex;
-        gap: 0.125rem;
         flex-wrap: wrap;
-        justify-content: flex-start;
         align-items: center;
+        gap: 0.125rem;
     }
 
     .social-links a {
@@ -408,41 +347,6 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
     .social-links svg {
         width: 18px;
         height: 18px;
-    }
-
-    .current-project {
-        grid-area: project;
-        width: min(100%, 16rem);
-        justify-self: center;
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
-
-    .current-project .mono-accent {
-        font-size: 0.8rem;
-    }
-
-    .current-project p {
-        margin: 0;
-        color: var(--fg-muted);
-    }
-
-    .current-project h2 {
-        font-size: 1rem;
-        margin: 0;
-    }
-
-    .current-project a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        min-height: 44px;
-        border-bottom: none;
-        text-decoration: underline;
-    }
-
-    .current-project a:hover {
-        text-decoration-thickness: 2px;
     }
 
     .wip-writing {
@@ -485,7 +389,7 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
     }
 
     .selected-work {
-        margin-top: clamp(4.4rem, 9.5vw, 6.8rem);
+        margin-top: 64px;
         padding-top: 1.25rem;
         border-top: 1px solid #e8e8e8;
     }
@@ -555,41 +459,41 @@ const selectedProjects = selectedProjectIds.map((id) => getProject(id));
         border-bottom-width: 1px;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 767px) {
+        .masthead {
+            gap: 12px;
+            padding-bottom: 12px;
+            font-size: 11px;
+        }
+
+        .masthead nav {
+            gap: 16px;
+        }
+
         .hero {
-            grid-template-columns: 1fr;
-            grid-template-areas:
-                "image"
-                "copy"
-                "project";
-            grid-template-rows: auto;
-            gap: 1.5rem;
+            padding: 32px 0 0;
         }
 
-        .hero-image {
-            justify-content: flex-start;
-        }
-
-        .current-project {
-            margin-top: 0.5rem;
-            width: min(100%, 22rem);
-            justify-self: start;
-        }
-
-        .avatar-container {
-            width: 5rem;
-            margin: 0;
+        .hero-copy {
+            display: block;
         }
 
         h1 {
-            font-size: clamp(1.9rem, 8vw, 2.5rem);
-            letter-spacing: -0.035em;
+            max-width: 24ch;
+            margin-bottom: 20px;
+            font-size: clamp(36px, 7vw, 50px);
         }
 
-        .hero-actions {
-            gap: 0.85rem 1.1rem;
+        .hero-support {
+            font-size: 16px;
         }
 
+        .social-links {
+            margin-top: 12px;
+        }
+    }
+
+    @media (max-width: 640px) {
         .social-links li:nth-child(n + 4) {
             display: none;
         }
