@@ -9,7 +9,7 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 
-const { title, description, image = "/touch-icon.png" } = Astro.props;
+const { title, description, image = "/brand/linkedin-avatar.png" } = Astro.props;
 const socialImageURL = new URL(image, Astro.site ?? Astro.url);
 
 const isProduction = Astro.site?.origin === Astro.url.origin;
@@ -18,9 +18,10 @@ const isProduction = Astro.site?.origin === Astro.url.origin;
 <!-- Global -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="mask-icon" href="/mask-icon.svg" color="#fff" />
-<link rel="apple-touch-icon" href="/touch-icon.png" />
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any" />
+<link rel="mask-icon" href="/mask-icon.svg" color="#171717" />
+<link rel="apple-touch-icon" href="/touch-icon.png" sizes="180x180" />
 <meta name="generator" content={Astro.generator} />
 
 <!-- Preload fonts -->
